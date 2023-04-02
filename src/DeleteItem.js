@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import './DeleteItem.css';
@@ -22,7 +23,7 @@ const DeleteItem = ({controller}) => {
 
   return (
     <div className='delete'>
-      <h1>DeleteItem</h1>
+      <h1></h1>
       <table>
         <thead><tr><th>Name</th><th>Action</th></tr></thead>
         <tbody>

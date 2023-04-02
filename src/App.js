@@ -8,9 +8,9 @@ import FindItem from "./FindItem";
 import AddItem from "./AddItem";
 import DeleteItem from "./DeleteItem";
 import EditItem from "./EditItem";
+import SearchItem from "./SearchItem";
 import ErrorPage from "./ErrorPage";
 const controller = new Controller();
-
 
 const router = createBrowserRouter([
   {
@@ -22,7 +22,8 @@ const router = createBrowserRouter([
       { path: "/add",    element: <AddItem controller={controller}/> },
       { path: "/edit",   element: <EditItem controller={controller} /> },
       { path: "/delete", element: <DeleteItem controller={controller} /> },
-      { path: "/find",   element: <FindItem controller={controller} /> },
+      { path: "/search", element: <SearchItem controller={controller} /> },
+      { path: "/find/:location",   element: <FindItem controller={controller} /> },
     ]
   }
 ]);

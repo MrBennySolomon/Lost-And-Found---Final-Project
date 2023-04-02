@@ -32,7 +32,7 @@ const MainNavigation = () => {
                   <Link to="/delete">Delete Item</Link>
                 </li>
                 <li onClick={() => (inputRef.current.checked = false)}>
-                  <Link to="/find">Find & Take Me To The Item</Link>
+                  <Link to="/search">Search Item</Link>
                 </li>
               </ul>
             </div>
@@ -54,7 +54,7 @@ const MainNavigation = () => {
             <Link to="/delete">Delete Item</Link>
           </li>
           <li>
-            <Link to="/find">Find & Take Me To The Item</Link>
+            <Link to="/search">Search Item</Link>
           </li>
         </ul>
       </nav>
