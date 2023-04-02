@@ -8,7 +8,7 @@ import FindItem from "./FindItem";
 import AddItem from "./AddItem";
 import DeleteItem from "./DeleteItem";
 import EditItem from "./EditItem";
-// import ErrorPage from "./MVC/View/pages/Error";
+import ErrorPage from "./ErrorPage";
 const controller = new Controller();
 
 
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "/",       element: <Home /> },
       { path: "/add",    element: <AddItem controller={controller}/> },
