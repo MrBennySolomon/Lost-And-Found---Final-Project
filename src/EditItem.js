@@ -29,7 +29,7 @@ const EditItem = ({ controller }) => {
 
   return (
     <div className="edit">
-      <h1>EditItem</h1>
+      <h1></h1>
       <table>
         <thead>
           <tr>

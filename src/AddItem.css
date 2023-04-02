@@ -3,7 +3,7 @@ div.add-item {
   height: 80vh;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
@@ -12,18 +12,32 @@ div.add-item {
   color: white;
 
   font-size: 180%;
+
+  background: url('./add-item.gif') no-repeat center center/contain;
+
 }
 
 h1 {
   color: #2991EA;
 }
 
-input,
+.add-item input,
 button.add-btn {
-  width: 30%;
+  width: 60%;
+  padding: 1rem;
 }
 
 button.add-btn {
   background-color: #2991EA;
   color: white;
+}
+
+div.inputs-div {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
 }

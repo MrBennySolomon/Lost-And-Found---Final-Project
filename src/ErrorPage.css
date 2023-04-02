@@ -6,6 +6,9 @@ div.error {
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+
+  background: url('./error.gif') no-repeat center center/contain;
+
 }
 
 div.error main {
@@ -13,11 +16,22 @@ div.error main {
   height: 80vh;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
   font-size: 200%;
+}
+
+main {
+  width: 100vw;
+  height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
 }
 
 main p a {

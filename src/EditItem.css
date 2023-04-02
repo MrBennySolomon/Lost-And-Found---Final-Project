@@ -3,7 +3,7 @@ div.edit {
   height: 80vh;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
@@ -12,6 +12,9 @@ div.edit {
   color: white;
 
   font-size: 180%;
+
+  background: url('./edit-item.gif') no-repeat center center/contain;
+
 }
 
 h1 {

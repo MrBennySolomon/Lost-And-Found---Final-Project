@@ -28,11 +28,12 @@ const AddItem = ({controller}) => {
 
   return (
     <div className='add-item'>
-      <h1>Add Item</h1>
-      <input onChange={nameHandler} type='text'placeholder='Name'/>
-      <input onChange={locationHandler} type='text' placeholder='Location'/>
-      <button onClick={addHandler} className='add-btn'>submit</button>
-
+      <h1></h1>
+      <div className='inputs-div'>
+        <input onChange={nameHandler} type='text'placeholder='Name'/>
+        <input onChange={locationHandler} type='text' placeholder='Location'/>
+        <button onClick={addHandler} className='add-btn'>submit</button>
+      </div>
     </div>
   )
 }
