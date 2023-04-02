@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 import React, { useState } from 'react';
 // import Controller from './Controller';
 import { useNavigate } from 'react-router-dom';
