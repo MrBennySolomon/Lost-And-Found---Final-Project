@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
 
-  background: #26001B;
+  background: black;
 
   border-bottom: 5px solid #FA1EF9;
   z-index: 10;
@@ -163,7 +163,7 @@
 }
 
 .menu-wrap .menu > div > div > ul > li > a:hover {
-  color: #FA1EF9;
+  color: #99E7FB;
   z-index: 10;
 }
 

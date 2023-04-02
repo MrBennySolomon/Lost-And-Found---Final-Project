@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import Root from "./Root";
+import FindItem from "./FindItem";
 // import AddItem from "./MVC/View/pages/AddItem";
 // import EditItem from "./MVC/View/pages/EditItem";
 // import DeleteItem from "./MVC/View/pages/DeleteItem";
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       // { path: "/add",    element: <AddItem /> },
       // { path: "/edit",   element: <EditItem /> },
       // { path: "/delete", element: <DeleteItem /> },
-      // { path: "/find",   element: <FindItem /> },
+      { path: "/find",   element: <FindItem /> },
     ]
   }
 ]);
