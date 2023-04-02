@@ -1,0 +1,29 @@
+div.add-item {
+  width: 100vw;
+  height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  background-color: black;
+  color: white;
+
+  font-size: 180%;
+}
+
+h1 {
+  color: #2991EA;
+}
+
+input,
+button.add-btn {
+  width: 30%;
+}
+
+button.add-btn {
+  background-color: #2991EA;
+  color: white;
+}

@@ -1,14 +1,16 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Controller from './Controller';
 import "./App.css";
 import Home from "./Home";
 import Root from "./Root";
 import FindItem from "./FindItem";
-// import AddItem from "./MVC/View/pages/AddItem";
-// import EditItem from "./MVC/View/pages/EditItem";
-// import DeleteItem from "./MVC/View/pages/DeleteItem";
-// import FindItem from "./MVC/View/pages/FindItem";
+import AddItem from "./AddItem";
+import DeleteItem from "./DeleteItem";
+import EditItem from "./EditItem";
 // import ErrorPage from "./MVC/View/pages/Error";
+const controller = new Controller();
+
 
 const router = createBrowserRouter([
   {
@@ -17,10 +19,10 @@ const router = createBrowserRouter([
     // errorElement: <ErrorPage />,
     children: [
       { path: "/",       element: <Home /> },
-      // { path: "/add",    element: <AddItem /> },
-      // { path: "/edit",   element: <EditItem /> },
-      // { path: "/delete", element: <DeleteItem /> },
-      { path: "/find",   element: <FindItem /> },
+      { path: "/add",    element: <AddItem controller={controller}/> },
+      { path: "/edit",   element: <EditItem controller={controller} /> },
+      { path: "/delete", element: <DeleteItem controller={controller} /> },
+      { path: "/find",   element: <FindItem controller={controller} /> },
     ]
   }
 ]);

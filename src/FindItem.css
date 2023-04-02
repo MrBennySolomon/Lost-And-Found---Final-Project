@@ -8,11 +8,18 @@ div.find {
 }
 
 canvas {
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
 }
 
 Unity {
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
+}
+
+button {
+  text-decoration: none;
+  width: 100%;
+  background-color: black;
+  color: #99E7FB;
 }

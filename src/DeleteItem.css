@@ -1,0 +1,58 @@
+div.delete {
+  width: 100vw;
+  height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  background-color: black;
+  color: white;
+
+  font-size: 180%;
+}
+
+h1 {
+  color: #2991EA;
+}
+
+input,
+button.del-btn {
+  width: 30%;
+}
+
+button.del-btn {
+  background-color: #2991EA;
+  color: white;
+}
+
+table,
+thead,
+tbody,
+tr,
+td,
+th {
+  border: 1px solid white;
+}
+
+th,
+td {
+  padding: 1rem 1rem;
+}
+
+tbody td {
+  background-color: white;
+  color: #2991EA;
+  text-align: center;
+  font-weight: bold;
+}
+
+td.action {
+  cursor: pointer;
+}
+
+table {
+  width: 30%;
+}
