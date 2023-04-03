@@ -1,14 +1,24 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
 import "../../../css/DeleteItem.css";
-import React, { useEffect, useState } from "react";
+import "../../../css/loader.css";
+import React, { useEffect } from "react";
+import { useItemsContext } from "../../../context/context";
 
-const DeleteItem = ({ controller }) => {
-  const [items, setItems] = useState([]);
+const DeleteItem = () => {
+  const {
+    controller,
+    items,
+    setItems,
+    isLoading,
+    setIsLoading
+  } = useItemsContext();
 
   const fetchItems = async () => {
+    setIsLoading(true);
     const response = await controller.model.getAllItems();
     setItems(response.data);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -23,28 +33,37 @@ const DeleteItem = ({ controller }) => {
 
   return (
     <div className="delete">
-      <h1 />
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.length > 0 &&
-            items.map(item =>
-              <tr key={item.id}>
-                <td>
-                  {item.name}
-                </td>
-                <td className="action" id={item.id} onClick={deleteHandler}>
-                  X
-                </td>
-              </tr>
-            )}
-        </tbody>
-      </table>
+      <h1>
+        {isLoading &&
+          <div className="loader">
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+          </div>}
+      </h1>
+      {!isLoading &&
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.length > 0 &&
+              items.map(item =>
+                <tr key={item.id}>
+                  <td>
+                    {item.name}
+                  </td>
+                  <td className="action" id={item.id} onClick={deleteHandler}>
+                    X
+                  </td>
+                </tr>
+              )}
+          </tbody>
+        </table>}
     </div>
   );
 };

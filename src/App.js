@@ -1,6 +1,5 @@
 import "./css/App.css";
 import React from "react";
-import Controller from "./MVC/Controller/Controller";
 import Home from "./MVC/View/pages/Home";
 import Root from "./MVC/View/components/Root";
 import FindItem from "./MVC/View/pages/FindItem";
@@ -11,8 +10,6 @@ import SearchItem from "./MVC/View/pages/SearchItem";
 import ErrorPage from "./MVC/View/pages/ErrorPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const controller = new Controller();
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,11 +17,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/add", element: <AddItem controller={controller} /> },
-      { path: "/edit", element: <EditItem controller={controller} /> },
-      { path: "/delete", element: <DeleteItem controller={controller} /> },
-      { path: "/search", element: <SearchItem controller={controller} /> },
-      { path: "/find/:location", element: <FindItem controller={controller} /> }
+      { path: "/add", element: <AddItem/> },
+      { path: "/edit", element: <EditItem/> },
+      { path: "/delete", element: <DeleteItem/> },
+      { path: "/search", element: <SearchItem/> },
+      { path: "/find/:location", element: <FindItem /> }
     ]
   }
 ]);

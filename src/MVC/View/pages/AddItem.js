@@ -1,12 +1,18 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import "../../../css/AddItem.css";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useItemsContext } from "../../../context/context";
 
-const AddItem = ({ controller }) => {
+const AddItem = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [location, setlocation] = useState("");
+  const {
+    controller,
+    name,
+    location,
+    setName,
+    setLocation
+  } = useItemsContext();
 
   const addHandler = e => {
     e.preventDefault();
@@ -22,7 +28,7 @@ const AddItem = ({ controller }) => {
   };
 
   const locationHandler = e => {
-    setlocation(e.target.value);
+    setLocation(e.target.value);
   };
 
   return (

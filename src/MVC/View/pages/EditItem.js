@@ -1,16 +1,26 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
 import "../../../css/EditItem.css";
-import React, { useEffect, useState, useRef } from "react";
+import "../../../css/loader.css";
+import React, { useEffect, useRef } from "react";
+import { useItemsContext } from "../../../context/context";
 
-const EditItem = ({ controller }) => {
-  const [items, setItems] = useState([]);
+const EditItem = () => {
+  const {
+    controller,
+    items,
+    setItems,
+    isLoading,
+    setIsLoading
+  } = useItemsContext();
   const nameRef = useRef();
   const locationRef = useRef();
 
   const fetchItems = async () => {
+    setIsLoading(true);
     const response = await controller.model.getAllItems();
     setItems(response.data);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -28,7 +38,16 @@ const EditItem = ({ controller }) => {
 
   return (
     <div className="edit">
-      <h1 />
+      <h1>
+        {isLoading &&
+          <div className="loader">
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+          </div>}
+      </h1>
+      {!isLoading &&
       <table>
         <thead>
           <tr>
@@ -57,7 +76,7 @@ const EditItem = ({ controller }) => {
               </tr>
             )}
         </tbody>
-      </table>
+      </table>}
     </div>
   );
 };
