@@ -4,12 +4,12 @@ import                                     '../../../css/SearchItem.css';
 import React, { useEffect, useState } from 'react';
 import { useNavigate }                from 'react-router-dom';
 
-const SearchItem = ({target, controller}) => {
+const SearchItem          = ({target, controller}) => {
   const [items, setItems] = useState([]);
-  const navigate = useNavigate();
+  const navigate          = useNavigate();
 
-  const fetchItems = async () => {
-    const response = await controller.model.getAllItems();
+  const fetchItems        = async () => {
+    const response        = await controller.model.getAllItems();
     setItems(response.data);
   };
 
@@ -17,8 +17,8 @@ const SearchItem = ({target, controller}) => {
     fetchItems();
   }, []);
 
-  const searchHandler = (e) => {
-    const location = e.target.getAttribute('location');
+  const searchHandler     = (e) => {
+    const location        = e.target.getAttribute('location');
     navigate(`/find/${location}`);
   }
 

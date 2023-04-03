@@ -3,11 +3,11 @@
 import                                     '../../../css/DeleteItem.css';
 import React, { useEffect, useState } from 'react';
 
-const DeleteItem = ({controller}) => {
+const DeleteItem          = ({controller}) => {
   const [items, setItems] = useState([]);
 
-  const fetchItems = async () => {
-    const response = await controller.model.getAllItems();
+  const fetchItems        = async () => {
+    const response        = await controller.model.getAllItems();
     setItems(response.data);
   };
 
@@ -15,8 +15,8 @@ const DeleteItem = ({controller}) => {
     fetchItems();
   }, []);
 
-  const deleteHandler = (e) => {
-    const id = e.target.getAttribute('id');
+  const deleteHandler     = (e) => {
+    const id          = e.target.getAttribute('id');
     controller.model.deleteItem(id);
     fetchItems();
   }

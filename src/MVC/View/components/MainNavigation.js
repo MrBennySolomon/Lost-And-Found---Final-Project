@@ -5,7 +5,7 @@ import { Link }          from "react-router-dom";
 import React, { useRef } from "react";
 
 const MainNavigation = () => {
-  const inputRef = useRef();
+  const inputRef     = useRef();
 
   return (
     <React.Fragment>

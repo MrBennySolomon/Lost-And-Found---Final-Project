@@ -3,8 +3,8 @@ import React                      from 'react';
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { useParams }              from 'react-router-dom';
 
-const FindItem = () => {
-  const params = useParams();
+const FindItem                    = () => {
+  const params                    = useParams();
   
   const { unload, unityProvider } = useUnityContext({
     loaderUrl:    `/Build/${params.location}/${params.location}.loader.js`,

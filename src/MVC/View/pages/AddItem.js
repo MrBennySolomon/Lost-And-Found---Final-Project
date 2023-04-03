@@ -8,7 +8,7 @@ const AddItem = ({controller}) => {
   const [name, setName] = useState('');
   const [location, setlocation] = useState('');
 
-  const addHandler = (e) => {
+  const addHandler      = (e) => {
     e.preventDefault();
     controller.model.addItem({
       name,
@@ -17,7 +17,7 @@ const AddItem = ({controller}) => {
     navigate('/');
   }
 
-  const nameHandler = (e) => {
+  const nameHandler     = (e) => {
     setName(e.target.value);
   }
 

@@ -3,29 +3,24 @@
 import                                             "../../../css/EditItem.css";
 import React, { useEffect, useState, useRef } from "react";
 
-const EditItem = ({ controller }) => {
+const EditItem            = ({ controller }) => {
   const [items, setItems] = useState([]);
-  const nameRef = useRef();
-  const locationRef= useRef();
+  const nameRef           = useRef();
+  const locationRef       = useRef();
 
-  const fetchItems = async () => {
-    const response = await controller.model.getAllItems();
+  const fetchItems        = async () => {
+    const response        = await controller.model.getAllItems();
     setItems(response.data);
   };
 
-  useEffect(() => {
-    fetchItems(); 
-  }, []);
+  useEffect(() => {fetchItems()}, []);
 
-  const editHandler = (e) => {
-    const id = e.target.getAttribute("id");
-    const name = nameRef.current.value;
-    const location = locationRef.current.value;
+  const editHandler       = (e) => {
+    const id              = e.target.getAttribute("id");
+    const name            = nameRef.current.value;
+    const location        = locationRef.current.value;
 
-    controller.model.editItem({
-      name,
-      location
-    }, id);
+    controller.model.editItem({name: name,location: location}, id);
     fetchItems();
   };
 

@@ -5,7 +5,7 @@ class Model {
     this.itemsDB = ItemsDB;
   }
 
-  addItem = (item) => {
+  addItem     = (item) => {
     this.itemsDB.addItem(item);
   }
 
@@ -13,11 +13,11 @@ class Model {
     return this.itemsDB.getAllItems();
   }
 
-  deleteItem = (id) => {
+  deleteItem  = (id) => {
     this.itemsDB.removeItem(id);
   }
 
-  editItem = (newItem, id) => {
+  editItem    = (newItem, id) => {
     this.itemsDB.editItem(newItem, id);
   }
 }

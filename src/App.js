@@ -15,7 +15,7 @@ RouterProvider }   from "react-router-dom";
 
 const controller = new Controller();
 
-const router = createBrowserRouter([
+const router     = createBrowserRouter([
   {
     path: "/",
     element:      <Root />,
