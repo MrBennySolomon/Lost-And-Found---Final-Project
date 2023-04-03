@@ -40,7 +40,7 @@
   flex: none;
   width: 100%;
   height: 4px;
-  background: #2991EA;
+  background: linear-gradient(135deg, #2991EA 30%, #FA1EF9 70%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,7 +150,7 @@
   text-decoration: none;
   transition: color 0.4s ease;
   z-index: 10;
-  font-size: 80%;
+  font-size: 100%;
 }
 
 .menu-wrap .menu > div > div > ul > li > a:hover {
