@@ -2,10 +2,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import "../../../css/EditItem.css";
 import "../../../css/loader.css";
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useRef } from "react";
 import { useItemsContext } from "../../../context/context";
 
 const EditItem = () => {
+  const navigate = useNavigate();
   const {
     controller,
     items,
@@ -31,9 +33,8 @@ const EditItem = () => {
     const id = e.target.getAttribute("id");
     const name = nameRef.current.value;
     const location = locationRef.current.value;
-
     controller.model.editItem({ name: name, location: location }, id);
-    fetchItems();
+    navigate("/");
   };
 
   return (
