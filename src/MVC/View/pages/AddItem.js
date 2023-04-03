@@ -1,14 +1,12 @@
 /* eslint-disable jsx-a11y/heading-has-content */
+import                          '../../../css/AddItem.css';
 import React, { useState } from 'react';
-// import Controller from './Controller';
-import { useNavigate } from 'react-router-dom';
-import './AddItem.css';
+import { useNavigate }     from 'react-router-dom';
 
 const AddItem = ({controller}) => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [location, setlocation] = useState('');
-  // const controller = new Controller();
 
   const addHandler = (e) => {
     e.preventDefault();

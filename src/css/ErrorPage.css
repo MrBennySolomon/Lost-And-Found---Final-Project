@@ -7,7 +7,7 @@ div.error {
   flex-direction: column;
   gap: 1rem;
 
-  background: url('./error.gif') no-repeat center center/contain;
+  background: url('../img/error.gif') no-repeat center center/contain;
 
 }
 

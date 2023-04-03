@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
+import                                     '../../../css/DeleteItem.css';
 import React, { useEffect, useState } from 'react';
-import './DeleteItem.css';
 
 const DeleteItem = ({controller}) => {
   const [items, setItems] = useState([]);

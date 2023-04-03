@@ -20,7 +20,6 @@ class Model {
   editItem = (newItem, id) => {
     this.itemsDB.editItem(newItem, id);
   }
-
 }
 
 export default Model;

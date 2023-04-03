@@ -1,4 +1,4 @@
-div.edit {
+div.search {
   width: 100vw;
   height: 80vh;
 
@@ -13,7 +13,7 @@ div.edit {
 
   font-size: 180%;
 
-  background: url('./edit-item.gif') no-repeat center center/contain;
+  background: url('../img/search-item.gif') no-repeat center center/contain;
 
 }
 
@@ -21,7 +21,12 @@ h1 {
   color: #2991EA;
 }
 
-button.edit-btn {
+input,
+button.del-btn {
+  width: 30%;
+}
+
+button.del-btn {
   background-color: #2991EA;
   color: white;
 }
@@ -40,10 +45,6 @@ td {
   padding: 1rem 1rem;
 }
 
-input {
-  text-align: center;
-}
-
 tbody td {
   background-color: white;
   color: #2991EA;
@@ -57,8 +58,4 @@ td.action {
 
 table {
   width: 80%;
-}
-
-table input {
-  width: 100%;
 }

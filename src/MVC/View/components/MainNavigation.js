@@ -1,8 +1,7 @@
-import "./menu.css";
-import "./style.css";
-import "./MainNavigation.css";
-
-import { Link } from "react-router-dom";
+import                        "../../../css/menu.css";
+import                        "../../../css/style.css";
+import                        "../../../css/MainNavigation.css";
+import { Link }          from "react-router-dom";
 import React, { useRef } from "react";
 
 const MainNavigation = () => {

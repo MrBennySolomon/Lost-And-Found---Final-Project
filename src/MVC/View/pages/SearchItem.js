@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/heading-has-content */
+import                                     '../../../css/SearchItem.css';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './SearchItem.css';
+import { useNavigate }                from 'react-router-dom';
 
 const SearchItem = ({target, controller}) => {
   const [items, setItems] = useState([]);

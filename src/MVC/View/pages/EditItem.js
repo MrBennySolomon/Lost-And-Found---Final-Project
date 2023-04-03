@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
+import                                             "../../../css/EditItem.css";
 import React, { useEffect, useState, useRef } from "react";
-import "./EditItem.css";
 
 const EditItem = ({ controller }) => {
   const [items, setItems] = useState([]);
