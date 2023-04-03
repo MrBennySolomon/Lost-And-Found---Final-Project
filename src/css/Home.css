@@ -2,7 +2,6 @@ div.home {
   width:100vw;
   height: 80vh;
   background: url('../img/intro.gif') no-repeat center center/contain;
-
   display: flex;
   justify-content: center;
   align-items: center;

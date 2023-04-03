@@ -1,24 +1,19 @@
 div.delete {
   width: 100vw;
   height: 80vh;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-
   background-color: black;
   color: white;
-
   font-size: 180%;
-
-  background: url('../img/delete-item.gif') no-repeat center center/contain;
-
+  background: url("../img/delete-item.gif") no-repeat center center/contain;
 }
 
 h1 {
-  color: #2991EA;
+  color: #2991ea;
 }
 
 input,
@@ -27,7 +22,7 @@ button.del-btn {
 }
 
 button.del-btn {
-  background-color: #2991EA;
+  background-color: #2991ea;
   color: white;
 }
 
@@ -47,7 +42,7 @@ td {
 
 tbody td {
   background-color: white;
-  color: #2991EA;
+  color: #2991ea;
   text-align: center;
   font-weight: bold;
 }

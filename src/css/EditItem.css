@@ -1,20 +1,15 @@
 div.edit {
   width: 100vw;
   height: 80vh;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-
   background-color: black;
   color: white;
-
   font-size: 180%;
-
   background: url('../img/edit-item.gif') no-repeat center center/contain;
-
 }
 
 h1 {

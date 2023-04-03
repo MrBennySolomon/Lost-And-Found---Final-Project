@@ -2,18 +2,17 @@ import axios from "axios";
 
 const ItemsDB = {
   items: axios.create({
-    baseURL:
-      "https://tame-gold-goat-belt.cyclic.app/items", 
+    baseURL: "https://tame-gold-goat-belt.cyclic.app/items"
   }),
 
   async removeItem(id) {
-  this.items
+    this.items
       .delete(`/${id}`)
-      .then((response) => {
+      .then(response => {
         console.log(`Item id ${id} was deleted successfully`);
         return "Item Was Deleted!";
       })
-      .catch((error) => {
+      .catch(error => {
         return "Error while deleting item";
       });
   },
@@ -21,11 +20,11 @@ const ItemsDB = {
   async getItem(id) {
     this.items
       .get(`/${id}`)
-      .then((response) => {
+      .then(response => {
         console.log(`Item id ${id} was fetch successfully`);
         return response.data;
       })
-      .catch((error) => {
+      .catch(error => {
         return `Error while fetching item id: ${id}`;
       });
   },
@@ -46,24 +45,24 @@ const ItemsDB = {
   async addItem(newItem) {
     this.items
       .post("", newItem)
-      .then((response) => {
+      .then(response => {
         console.log("Item was added successfully");
       })
-      .catch((error) => {
+      .catch(error => {
         console.error("Error adding item", error);
       });
   },
-  
+
   async editItem(updatedData, id) {
     this.items
       .put(`/${id}`, updatedData)
-      .then((response) => {
+      .then(response => {
         console.log("Item updated successfully:", response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error("Error updating item:", error);
       });
-  },
+  }
 };
 
-  export default ItemsDB;
+export default ItemsDB;

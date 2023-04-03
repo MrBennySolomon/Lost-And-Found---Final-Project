@@ -1,20 +1,16 @@
 div.error {
   background: black;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-
   background: url('../img/error.gif') no-repeat center center/contain;
-
 }
 
 div.error main {
   width:100vw;
   height: 80vh;
-
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -26,12 +22,10 @@ div.error main {
 main {
   width: 100vw;
   height: 80vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
 main p a {

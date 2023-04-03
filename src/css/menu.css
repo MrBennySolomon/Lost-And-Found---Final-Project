@@ -1,13 +1,10 @@
 .menu-wrap {
   width: 100vw;
   height: 10vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: black;
-
   border-bottom: 5px solid #FA1EF9;
   z-index: 10;
 }
@@ -88,7 +85,6 @@
 /* Show Menu */
 .menu-wrap .toggler:checked ~ .menu {
   visibility: visible;
-  
 }
 
 .menu-wrap .toggler:checked ~ .menu > div {
@@ -116,7 +112,6 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
-
 }
 
 .menu-wrap .menu > div {
@@ -128,11 +123,9 @@
   flex: none;
   align-items: center;
   justify-content: center;
-  
   transform: scale(0);
   transition: all 0.4s ease;
   z-index: 10;
-
 }
 
 .menu-wrap .menu > div > div {
@@ -142,7 +135,6 @@
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 10;
-
 }
 
 .menu-wrap .menu > div > div > ul > li {
@@ -151,7 +143,6 @@
   font-size: 1.5rem;
   padding: 0.1rem;
   z-index: 10;
-
 }
 
 .menu-wrap .menu > div > div > ul > li > a {
