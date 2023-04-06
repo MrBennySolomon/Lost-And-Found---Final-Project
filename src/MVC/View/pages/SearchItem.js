@@ -34,15 +34,14 @@ const SearchItem = () => {
 
   return (
     <div className="search">
-      <h1>
+      <h1 className="search-item"/>
         {isLoading &&
           <div className="loader">
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>}
-      </h1>
       {!isLoading &&
         <table>
           <thead>

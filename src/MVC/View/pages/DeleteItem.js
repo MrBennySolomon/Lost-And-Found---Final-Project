@@ -33,15 +33,14 @@ const DeleteItem = () => {
 
   return (
     <div className="delete">
-      <h1>
-        {isLoading &&
+      <h1 className="delete-item"/>
+      {isLoading &&
           <div className="loader">
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>}
-      </h1>
       {!isLoading &&
         <table>
           <thead>

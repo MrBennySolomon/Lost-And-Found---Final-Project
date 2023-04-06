@@ -37,15 +37,14 @@ const EditItem = () => {
 
   return (
     <div className="edit">
-      <h1>
-        {isLoading &&
+      <h1 className="edit-item"/>
+      {isLoading &&
           <div className="loader">
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>}
-      </h1>
       {!isLoading &&
       <table>
         <thead>

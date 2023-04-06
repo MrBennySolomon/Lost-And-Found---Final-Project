@@ -33,7 +33,7 @@ const AddItem = () => {
 
   return (
     <div className="add-item">
-      <h1 />
+      <h1 className="add-item"/>
       <div className="inputs-div">
         <input onChange={nameHandler} type="text" placeholder="Name" />
         <input onChange={locationHandler} type="text" placeholder="Location" />
