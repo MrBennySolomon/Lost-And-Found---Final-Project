@@ -2,7 +2,7 @@ import axios from "axios";
 
 const ItemsDB = {
   items: axios.create({
-    baseURL: "https://tame-gold-goat-belt.cyclic.app/items"
+    baseURL: "https://lost-and-found-server-5v26.onrender.com/items"
   }),
 
   async removeItem(id) {

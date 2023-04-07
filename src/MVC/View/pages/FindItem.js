@@ -1,5 +1,5 @@
 import                                 '../../../css/FindItem.css';
-import React                      from 'react';
+import React, { useEffect }                      from 'react';
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { useParams }              from 'react-router-dom';
 
@@ -16,6 +16,12 @@ const FindItem                    = () => {
   async function handleClickBack() {
     await unload();
   }
+
+  useEffect(() => {
+    return () => {
+      handleClickBack();
+    };
+  }, []);
 
   return (
     <>
