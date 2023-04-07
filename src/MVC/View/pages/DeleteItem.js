@@ -17,7 +17,6 @@ const DeleteItem = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     const response = await controller.model.getAllItems();
-    console.log('response.data', response.data);
     setItems(response.data);
     setIsLoading(false);
   };
