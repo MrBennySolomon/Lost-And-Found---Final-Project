@@ -1,9 +1,9 @@
 ---------------------------------------------------------------------------------------------
 ## [Final-Project - React Responsive Lost & Found Web site](https://lost-and-found-client-es0k.onrender.com/)
 ---------------------------------------------------------------------------------------------
-live demo: https://lost-and-found-client-es0k.onrender.com/
+### live demo: https://lost-and-found-client-es0k.onrender.com/
 ---------------------------------------------------------------------------------------------
-teaser video: https://www.youtube.com/shorts/5RsJH2ZACxw
+### teaser video: https://www.youtube.com/shorts/5RsJH2ZACxw
 ---------------------------------------------------------------------------------------------
 diagram :
 ---------
@@ -16,8 +16,6 @@ diagram :
 #### ◯ Search Item Page  - the user can search items and press "Take Me" button.
 ---------------------------------------------------------------------------------------------
 #### technologies used : react / react-router-dom / useState / useEffect / useRef / useContext / useNavigate / useParams / JavaScript / css / html
----------------------------------------------------------------------------------------------
-### live preview at : [https://lost-and-found-client-es0k.onrender.com/](https://lost-and-found-client-es0k.onrender.com/)
 ---------------------------------------------------------------------------------------------
 screen-shots:
 -------------
