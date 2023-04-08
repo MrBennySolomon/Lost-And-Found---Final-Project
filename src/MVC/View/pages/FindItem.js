@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import                                 '../../../css/FindItem.css';
 import React, { useEffect }                      from 'react';
 import { Unity, useUnityContext } from "react-unity-webgl";
