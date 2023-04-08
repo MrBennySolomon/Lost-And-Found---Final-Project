@@ -20,10 +20,10 @@ diagram :
 screen-shots:
 -------------
 ![home-screenshot](https://user-images.githubusercontent.com/53153372/230719041-b00a64e6-4a70-491f-8005-08ab4a6caa1c.png)
-![add-item-page-screenshot](https://user-images.githubusercontent.com/53153372/230719046-e2658867-525e-49c0-b6d9-21ea522b9b63.png)
+![add-page-screenshot](https://user-images.githubusercontent.com/53153372/230720240-395fc647-7549-444c-9ce8-8f9f68977c1a.png)
 ![edit-page-screenshot](https://user-images.githubusercontent.com/53153372/230720052-c415c1df-a31f-4c5d-ac3e-22bcc1bf3943.png)
-![delete-page-screenshot](https://user-images.githubusercontent.com/53153372/230719060-9df39b8e-a1da-4d4c-a63c-60f1504ad005.png)
-![search-item-page-screenshot](https://user-images.githubusercontent.com/53153372/230719074-f9d85b4a-6713-4e09-8c36-366e981df997.png)
+![delete-page-screenshot](https://user-images.githubusercontent.com/53153372/230720247-13cc4052-8106-429c-bb1f-fcb63adac1be.png)
+![search-page-screenshot](https://user-images.githubusercontent.com/53153372/230720249-5be94b1e-dec5-4aa1-9cad-ed44ed23083f.png)
 ---------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 ---------------------------------------------------------------------------------------------
