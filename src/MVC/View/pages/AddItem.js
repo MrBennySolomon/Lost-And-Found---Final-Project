@@ -59,8 +59,10 @@ const AddItem = () => {
       (err) => console.log(err),() => {
         // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+        localStorage.setItem(file.name, url);
         console.log(url);
       });
+
     }); 
   }
 
@@ -71,7 +73,7 @@ const AddItem = () => {
         <input onChange={nameHandler} type="text" placeholder="Name" />
         <input onChange={locationHandler} type="text" placeholder="Location" />
           <input type="file" onChange={handleChange} accept=".unityweb, .js" />
-          <button onClick={handleUpload} className="add-btn">Upload to Firebase</button>
+          <button onClick={handleUpload} className="add-btn">upload</button>
           <p>{percent}%</p>
         <button onClick={addHandler} className="add-btn">submit</button>
       </div>
