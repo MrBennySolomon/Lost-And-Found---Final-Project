@@ -59,7 +59,7 @@ const AddItem = () => {
       (err) => console.log(err),() => {
         // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-        localStorage.setItem(file.name, url);
+        localStorage.setItem(file.name, url)
         console.log(url);
       });
 
