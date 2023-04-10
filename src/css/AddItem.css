@@ -37,3 +37,8 @@ div.inputs-div {
   flex-direction: column;
   gap: 0.5rem;
 }
+
+p {
+  background-color: #2991ea;
+  padding: 0 2rem;
+}
