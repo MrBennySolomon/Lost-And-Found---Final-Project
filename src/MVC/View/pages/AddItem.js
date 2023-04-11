@@ -17,21 +17,14 @@ const AddItem = () => {
     name,
     location,
     setName,
-    setLocation
+    setLocation,
+    setIsLoading,
+    isLoading
   } = useItemsContext();
 
   const handleChange = (event) => {
     setFiles(event.target.files);
   }
-
-  const addHandler = e => {
-    e.preventDefault();
-    controller.model.addItem({
-      name,
-      location
-    });
-    navigate("/");
-  };
 
   const nameHandler = e => {
     setName(e.target.value);
@@ -53,13 +46,18 @@ const AddItem = () => {
     }
 
     console.log(...formData);
-
+    setIsLoading(true);
     fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
       method: 'POST' ,
       body: formData,
     })
     .then(res => res.json())
     .then(data => {
+      setIsLoading(false);
+      controller.model.addItem({
+        name,
+        location
+      });
       console.log(data);
       navigate('/');
     });
@@ -68,16 +66,24 @@ const AddItem = () => {
   return (
     <div className="add-item">
       <h1 className="add-item"/>
+      {isLoading &&
+          <div className="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>}
+      {!isLoading &&
       <div className="inputs-div">
-        <form onSubmit={addHandler}>
+        <form>
           <input name="name" id="name" onChange={nameHandler} type="text" placeholder="Name" />
           <input name="location" id="location" onChange={locationHandler} type="text" placeholder="Location" />
           <input name="file" id="files" onChange={handleChange} type="file" multiple/>
-          <button onClick={handleUpload} className="add-btn">upload</button>
+          <button onClick={handleUpload} className="add-btn">save</button>
             {/* <p>{percent}%</p> */}
-          <button type="submit" className="add-btn">submit</button>
+          {/* <button type="submit" className="add-btn">submit</button> */}
         </form>
-      </div>
+      </div>}
     </div>
   );
 };
