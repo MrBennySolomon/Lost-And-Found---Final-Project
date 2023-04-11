@@ -8,10 +8,10 @@ const FindItem                    = () => {
   const params                    = useParams();
   
   const { unload, unityProvider } = useUnityContext({
-    loaderUrl:    `https://lost-and-found-server-5v26.onrender.com/${params.name}.loader.js`,
-    dataUrl:      `https://lost-and-found-server-5v26.onrender.com/${params.name}.data.unityweb`,
-    frameworkUrl: `https://lost-and-found-server-5v26.onrender.com/${params.name}.framework.js.unityweb`,
-    codeUrl:      `https://lost-and-found-server-5v26.onrender.com/${params.name}.wasm.unityweb`,
+    loaderUrl:    `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.loader.js`,
+    dataUrl:      `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.data.unityweb`,
+    frameworkUrl: `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.framework.js.unityweb`,
+    codeUrl:      `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.wasm.unityweb`,
   });
 
   async function handleClickBack() {
