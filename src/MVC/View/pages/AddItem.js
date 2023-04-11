@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import "../../../css/AddItem.css";
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { useItemsContext } from "../../../context/context";
-import { getStorage } from "firebase/storage";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import { getStorage } from "firebase/storage";
+// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import axios from 'axios';
 // import storage from "../../Model/firebaseConfig";
 const AddItem = () => {
-  const [file, setFile] = useState("");
+  const [files, setFiles] = useState("");
 
-  const [percent, setPercent] = useState(0);
+  // const [percent, setPercent] = useState(0);
   const navigate = useNavigate();
   const {
     controller,
@@ -20,7 +21,7 @@ const AddItem = () => {
   } = useItemsContext();
 
   const handleChange = (event) => {
-    setFile(event.target.files[0]);
+    setFiles(event.target.files);
   }
 
   const addHandler = e => {
@@ -40,42 +41,39 @@ const AddItem = () => {
     setLocation(e.target.value);
   };
 
-  const handleUpload = () => {
-    if (!file) {
-      alert("Please choose a file first!")
+  const handleUpload = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('location', location);
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append('files', files[i]);
     }
 
-    // Initialize Firebase Storage service
-    const storage = getStorage();
-    
-    const storageRef = ref(storage, `${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+    console.log(...formData);
 
-    uploadTask.on("state_changed",(snapshot) => {
-      const percent = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-      // update progress
-      setPercent(percent);
-      },
-      (err) => console.log(err),() => {
-        // download url
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-        localStorage.setItem(file.name, url)
-        console.log(url);
-      });
-
-    }); 
+    fetch('http://127.0.0.1:5000/uploads', {
+      method: 'POST' ,
+      body: formData,
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
   }
 
   return (
     <div className="add-item">
       <h1 className="add-item"/>
       <div className="inputs-div">
-        <input onChange={nameHandler} type="text" placeholder="Name" />
-        <input onChange={locationHandler} type="text" placeholder="Location" />
-          <input type="file" onChange={handleChange} accept=".unityweb, .js" />
+        <form onSubmit={addHandler}>
+          <input name="name" id="name" onChange={nameHandler} type="text" placeholder="Name" />
+          <input name="location" id="location" onChange={locationHandler} type="text" placeholder="Location" />
+          <input name="file" id="files" onChange={handleChange} type="file" multiple/>
           <button onClick={handleUpload} className="add-btn">upload</button>
-          <p>{percent}%</p>
-        <button onClick={addHandler} className="add-btn">submit</button>
+            {/* <p>{percent}%</p> */}
+          <button type="submit" className="add-btn">submit</button>
+        </form>
       </div>
     </div>
   );

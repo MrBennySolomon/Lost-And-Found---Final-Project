@@ -29,6 +29,7 @@ button.add-btn {
   color: white;
 }
 
+form,
 div.inputs-div {
   width: 100%;
   display: flex;
