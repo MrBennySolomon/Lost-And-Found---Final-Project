@@ -54,12 +54,15 @@ const AddItem = () => {
 
     console.log(...formData);
 
-    fetch('http://127.0.0.1:5000/uploads', {
+    fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
       method: 'POST' ,
       body: formData,
     })
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => {
+      console.log(data);
+      navigate('/');
+    });
   }
 
   return (
