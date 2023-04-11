@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       { path: "/edit", element: <EditItem/> },
       { path: "/delete", element: <DeleteItem/> },
       { path: "/search", element: <SearchItem/> },
-      { path: "/find/:location", element: <FindItem /> }
+      { path: "/find/:name", element: <FindItem /> }
     ]
   }
 ]);
