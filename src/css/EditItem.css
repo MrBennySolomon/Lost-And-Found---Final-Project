@@ -59,3 +59,7 @@ table {
 table input {
   width: 80%;
 }
+
+input.files {
+  width: 80%;
+}

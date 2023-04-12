@@ -2,10 +2,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import "../../../css/EditItem.css";
 import "../../../css/loader.css";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useItemsContext } from "../../../context/context";
+import { useNavigate } from "react-router-dom";
 
 const EditItem = () => {
+  const [files, setFiles] = useState("");
+  const navigate = useNavigate();
   const {
     controller,
     items,
@@ -13,8 +16,6 @@ const EditItem = () => {
     isLoading,
     setIsLoading
   } = useItemsContext();
-  const nameRef = useRef();
-  const locationRef = useRef();
 
   const fetchItems = async () => {
     setIsLoading(true);
@@ -27,12 +28,38 @@ const EditItem = () => {
     fetchItems();
   }, []);
 
+  const handleChange = (event) => {
+    setFiles(event.target.files);
+  }
+
   const editHandler = e => {
-    const id = e.target.getAttribute("id");
-    const name = nameRef.current.value;
-    const location = locationRef.current.value;
-    controller.model.editItem({ name: name, location: location }, id);
-    fetchItems();
+    e.preventDefault();
+    const name = e.target.getAttribute('name');
+    const location = e.target.getAttribute('location');
+
+    console.log('name', name);
+    console.log('location', location);
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('location', location);
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append('files', files[i]);
+    }
+
+    console.log(...formData);
+    setIsLoading(true);
+    fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
+      method: 'POST' ,
+      body: formData,
+    })
+    .then(res => res.json())
+    .then(data => {
+      setIsLoading(false);
+      console.log(data);
+      navigate('/');
+    });
   };
 
   return (
@@ -46,11 +73,12 @@ const EditItem = () => {
             <span></span>
           </div>}
       {!isLoading &&
+      <>
       <table>
         <thead>
           <tr>
             <th>Name</th>
-            <th>location</th>
+            <th>Location</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -58,23 +86,16 @@ const EditItem = () => {
           {items.length > 0 &&
             items.map(item =>
               <tr key={item.id}>
-                <td>
-                  <input ref={nameRef} type="text" placeholder={item.name} />
-                </td>
-                <td>
-                  <input
-                    ref={locationRef}
-                    type="text"
-                    placeholder={item.location}
-                  />
-                </td>
-                <td className="action" id={item.id} onClick={editHandler}>
-                  EDIT
-                </td>
+                <td>{item.name}</td>
+                <td>{item.location}</td>
+                <td className="action" name={item.name} location={item.location} id={item.id} onClick={editHandler}>EDIT</td>
               </tr>
             )}
         </tbody>
-      </table>}
+      </table>
+
+      <input className='files' name="file" id="files" onChange={handleChange} type="file" multiple/>
+      </>}
     </div>
   );
 };

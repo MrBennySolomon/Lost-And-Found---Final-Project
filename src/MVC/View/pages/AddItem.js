@@ -3,10 +3,7 @@ import "../../../css/AddItem.css";
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { useItemsContext } from "../../../context/context";
-// import { getStorage } from "firebase/storage";
-// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-// import axios from 'axios';
-// import storage from "../../Model/firebaseConfig";
+
 const AddItem = () => {
   const [files, setFiles] = useState("");
 
@@ -80,8 +77,6 @@ const AddItem = () => {
           <input name="location" id="location" onChange={locationHandler} type="text" placeholder="Location" />
           <input name="file" id="files" onChange={handleChange} type="file" multiple/>
           <button onClick={handleUpload} className="add-btn">save</button>
-            {/* <p>{percent}%</p> */}
-          {/* <button type="submit" className="add-btn">submit</button> */}
         </form>
       </div>}
     </div>
