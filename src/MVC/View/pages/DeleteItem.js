@@ -37,17 +37,24 @@ const DeleteItem = () => {
     formData.append('name', name);
 
     console.log(...formData);
-
+    setIsLoading(true);
     fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
       method: 'DELETE' ,
       body: formData,
     })
     .then(res => res.json())
     .then(data => {
+      setIsLoading(false);
       controller.model.deleteItem(id);
-      console.log(data);
       navigate('/');
-    });
+      console.log(data);
+    }).catch((err) => {
+      setIsLoading(false);
+      controller.model.deleteItem(id);
+      navigate('/');
+      console.log(err);
+    })
+    
   };
 
   return (
