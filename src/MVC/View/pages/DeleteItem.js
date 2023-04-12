@@ -13,6 +13,7 @@ const DeleteItem = () => {
     items,
     setItems,
     isLoading,
+    setIsLoading
   } = useItemsContext();
 
   const fetchItems = async () => {
@@ -36,7 +37,7 @@ const DeleteItem = () => {
     formData.append('name', name);
 
     console.log(...formData);
-
+    
     fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
       method: 'DELETE' ,
       body: formData,
