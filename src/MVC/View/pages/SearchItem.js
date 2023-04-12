@@ -28,8 +28,8 @@ const SearchItem = () => {
   }, []);
 
   const searchHandler = e => {
-    const location = e.target.getAttribute("location");
-    navigate(`/find/${location}`);
+    const name = e.target.getAttribute("name");
+    navigate(`/find/${name}`);
   };
 
   return (
@@ -59,7 +59,7 @@ const SearchItem = () => {
                   </td>
                   <td
                     className="action"
-                    location={item.location}
+                    name={item.name}
                     onClick={searchHandler}
                   >
                     Take Me
