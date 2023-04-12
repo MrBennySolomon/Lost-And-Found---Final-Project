@@ -4,8 +4,10 @@ import "../../../css/DeleteItem.css";
 import "../../../css/loader.css";
 import React, { useEffect } from "react";
 import { useItemsContext } from "../../../context/context";
+import { useNavigate } from "react-router-dom";
 
 const DeleteItem = () => {
+  const navigate = useNavigate();
   const {
     controller,
     items,
@@ -27,8 +29,25 @@ const DeleteItem = () => {
 
   const deleteHandler = e => {
     const id = e.target.getAttribute("id");
-    controller.model.deleteItem(id);
-    fetchItems();
+    const name = e.target.getAttribute("name");
+
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('name', name);
+
+    console.log(...formData);
+
+    fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
+      method: 'DELETE' ,
+      body: formData,
+    })
+    .then(res => res.json())
+    .then(data => {
+      controller.model.deleteItem(id);
+      console.log(data);
+      navigate('/');
+    });
   };
 
   return (
@@ -56,7 +75,7 @@ const DeleteItem = () => {
                   <td>
                     {item.name}
                   </td>
-                  <td className="action" id={item.id} onClick={deleteHandler}>
+                  <td className="action" name={item.name} id={item.id} onClick={deleteHandler}>
                     X
                   </td>
                 </tr>
