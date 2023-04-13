@@ -1,4 +1,4 @@
-import Model from "../Model/Model";
+import Model from '../Model/Model';
 class Controller {
   constructor() {
     this.model = new Model();

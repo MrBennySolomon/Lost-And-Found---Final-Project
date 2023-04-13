@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
-import "../../../css/DeleteItem.css";
-import "../../../css/loader.css";
-import React, { useEffect } from "react";
-import { useItemsContext } from "../../../context/context";
+import                                '../../../css/DeleteItem.css';
+import                                '../../../css/loader.css';
+import                                'react-toastify/dist/ReactToastify.css';
+import React, { useEffect }      from 'react';
+import { useItemsContext }       from '../../../context/context';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const DeleteItem = () => {
   const {

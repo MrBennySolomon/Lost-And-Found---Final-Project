@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import                                 '../../../css/FindItem.css';
-import React, { useEffect }                      from 'react';
-import { Unity, useUnityContext } from "react-unity-webgl";
+import React, { useEffect }       from 'react';
+import { Unity, useUnityContext } from 'react-unity-webgl';
 import { useParams }              from 'react-router-dom';
 
-const FindItem                    = () => {
-  const params                    = useParams();
+const FindItem = () => {
+  const params = useParams();
   
   const { unload, unityProvider } = useUnityContext({
     loaderUrl:    `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.loader.js`,

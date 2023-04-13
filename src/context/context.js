@@ -1,14 +1,16 @@
-import { useState, createContext, useContext } from "react";
-import Controller from "../MVC/Controller/Controller";
+import { useState, createContext, useContext } from 'react';
+import Controller                              from '../MVC/Controller/Controller';
 
 const AppContext = createContext([]);
 
 const AppProvider = ({ children }) => {
-  const controller = new Controller();
-  const [name, setName] = useState("");
-  const [items, setItems] = useState([]);
-  const [location, setLocation] = useState("");
+  const controller                = new Controller();
+  const [name, setName]           = useState('');
+  const [items, setItems]         = useState([]);
+  const [location, setLocation]   = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [email, setEmail]         = useState('');
+  const [password, setPassword]   = useState('');
 
   return (
     <AppContext.Provider
@@ -21,7 +23,11 @@ const AppProvider = ({ children }) => {
         location,
         setLocation,
         items,
-        setItems
+        setItems,
+        email,
+        setEmail,
+        password,
+        setPassword
       }}
     >
       {children}

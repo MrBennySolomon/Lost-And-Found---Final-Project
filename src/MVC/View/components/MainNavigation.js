@@ -1,8 +1,8 @@
-import "../../../css/menu.css";
-import "../../../css/style.css";
-import "../../../css/MainNavigation.css";
-import { Link } from "react-router-dom";
-import React, { useRef } from "react";
+import                        '../../../css/menu.css';
+import                        '../../../css/style.css';
+import                        '../../../css/MainNavigation.css';
+import { Link }          from 'react-router-dom';
+import React, { useRef } from 'react';
 
 const MainNavigation = () => {
   const inputRef = useRef();
@@ -18,21 +18,14 @@ const MainNavigation = () => {
           <div>
             <div>
               <ul className="flex-container">
-                <li onClick={() => (inputRef.current.checked = false)}>
-                  <Link to="/">Home</Link>
-                </li>
-                <li onClick={() => (inputRef.current.checked = false)}>
-                  <Link to="/add">Add Item</Link>
-                </li>
-                <li onClick={() => (inputRef.current.checked = false)}>
-                  <Link to="/edit">Edit Item</Link>
-                </li>
-                <li onClick={() => (inputRef.current.checked = false)}>
-                  <Link to="/delete">Delete Item</Link>
-                </li>
-                <li onClick={() => (inputRef.current.checked = false)}>
-                  <Link to="/search">Search Item</Link>
-                </li>
+                <li onClick={() => (inputRef.current.checked = false)}><Link to="/">Home</Link></li>
+                <li onClick={() => (inputRef.current.checked = false)}><Link to="/login">Login</Link></li>
+                <li onClick={() => (inputRef.current.checked = false)}><Link to="/register">Register</Link></li>
+                <li onClick={() => (inputRef.current.checked = false)}><Link to="/add">Add Item</Link></li>
+                <li onClick={() => (inputRef.current.checked = false)}><Link to="/edit">Edit Item</Link></li>
+                <li onClick={() => (inputRef.current.checked = false)}><Link to="/delete">Delete Item</Link></li>
+                <li onClick={() => (inputRef.current.checked = false)}><Link to="/search">Search Item</Link></li>
+                <li onClick={() => (inputRef.current.checked = false)}><Link to="/logout">Logout</Link></li>
               </ul>
             </div>
           </div>
@@ -40,21 +33,14 @@ const MainNavigation = () => {
       </div>
       <nav className="fullscreen-navbar">
         <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/add">Add Item</Link>
-          </li>
-          <li>
-            <Link to="/edit">Edit Item</Link>
-          </li>
-          <li>
-            <Link to="/delete">Delete Item</Link>
-          </li>
-          <li>
-            <Link to="/search">Search Item</Link>
-          </li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/register">Register</Link></li>
+          <li><Link to="/add">Add Item</Link></li>
+          <li><Link to="/edit">Edit Item</Link></li>
+          <li><Link to="/delete">Delete Item</Link></li>
+          <li><Link to="/search">Search Item</Link></li>
+          <li><Link to="/logout">Logout</Link></li>
         </ul>
       </nav>
     </React.Fragment>

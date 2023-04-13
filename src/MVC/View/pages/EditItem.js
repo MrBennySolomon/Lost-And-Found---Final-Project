@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
-import "../../../css/EditItem.css";
-import "../../../css/loader.css";
-import React, { useEffect, useState } from "react";
-import { useItemsContext } from "../../../context/context";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import                                     '../../../css/EditItem.css';
+import                                     '../../../css/loader.css';
+import                                     'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from 'react';
+import { useItemsContext }            from '../../../context/context';
+import { ToastContainer, toast }      from 'react-toastify';
+
 
 const EditItem = () => {
   const [files, setFiles] = useState("");

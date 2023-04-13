@@ -1,5 +1,5 @@
-import "../../../css/Footer.css";
-import React from "react";
+import            '../../../css/Footer.css';
+import React from 'react';
 
 const Footer = () => {
   return <footer>Benny Solomon &copy; 2023</footer>;

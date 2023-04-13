@@ -1,10 +1,13 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/heading-has-content */
-import "../../../css/AddItem.css";
-import React, {useEffect, useState} from "react";
-import { useItemsContext } from "../../../context/context";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import                                   '../../../css/AddItem.css';
+import                                   'react-toastify/dist/ReactToastify.css';
+import React, {useEffect, useState} from 'react';
+import { useItemsContext }          from '../../../context/context';
+import { ToastContainer, toast }    from 'react-toastify';
+
+import axios from 'axios';
 
 const AddItem = () => {
   const [files, setFiles] = useState("");
@@ -47,7 +50,7 @@ const AddItem = () => {
     setLocation(e.target.value);
   };
 
-  const handleUpload = (e) => {
+  const handleUpload = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -65,14 +68,39 @@ const AddItem = () => {
       body: formData,
     })
     .then(res => res.json())
-    .then(data => {
-      setIsLoading(false);
+    .then(async data => {
+      
       controller.model.addItem({
         name,
         location
       });
-      handleToastMessage();
+
+      try {
+        // Create the request payload
+        const payload = {
+          name: name,
+          location: location,
+        };
+  
+        // Send the request to the server
+        const response = await axios.post('localhost:5000/users', payload, {
+          headers: {
+            Authorization: `Bearer ${JSON.stringify(localStorage.getItem('token'))}}`,
+          },
+        });
+  
+        // Show a success message
+        handleToastMessage();
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+        setIsLoading(false);
+      }
+
+      
     });
+    setIsLoading(false);
+    handleToastMessage();
   }
 
   return (

@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/heading-has-content */
-import "../../../css/SearchItem.css";
-import "../../../css/loader.css";
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useItemsContext } from "../../../context/context";
+import                           '../../../css/SearchItem.css';
+import                           '../../../css/loader.css';
+import React, { useEffect } from 'react';
+import { useNavigate }      from 'react-router-dom';
+import { useItemsContext }  from '../../../context/context';
 
 const SearchItem = () => {
   const {
