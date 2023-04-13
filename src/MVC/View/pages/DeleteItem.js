@@ -4,10 +4,10 @@ import "../../../css/DeleteItem.css";
 import "../../../css/loader.css";
 import React, { useEffect } from "react";
 import { useItemsContext } from "../../../context/context";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DeleteItem = () => {
-  const navigate = useNavigate();
   const {
     controller,
     items,
@@ -27,6 +27,19 @@ const DeleteItem = () => {
     fetchItems();
   }, []);
 
+  const handleToastMessage = () => {
+    toast.success('Item deleted', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1500,
+      style: {
+        backgroundColor: '#4CAF50',
+        color: '#ffffff',
+        fontSize: '2rem',
+        textAlign: 'center',
+      }
+    });
+  }
+
   const deleteHandler = e => {
     const id = e.target.getAttribute("id");
     const name = e.target.getAttribute("name");
@@ -36,24 +49,26 @@ const DeleteItem = () => {
     const formData = new FormData();
     formData.append('name', name);
 
-    console.log(...formData);
-    
     fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
       method: 'DELETE' ,
       body: formData,
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      console.log(data)
     }).catch((err) => {
       console.log(err);
     })
     controller.model.deleteItem(id);
-      navigate('/');
+    // Remove the deleted item from the state
+    setItems(items.filter(item => item.id !== id));
+    setIsLoading(false);
+    handleToastMessage();
   };
 
   return (
     <div className="delete">
+      <ToastContainer/>
       <h1 className="delete-item"/>
       {isLoading &&
           <div className="loader">

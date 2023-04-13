@@ -1,14 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/heading-has-content */
 import "../../../css/AddItem.css";
-import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import { useItemsContext } from "../../../context/context";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddItem = () => {
   const [files, setFiles] = useState("");
-
-  // const [percent, setPercent] = useState(0);
-  const navigate = useNavigate();
   const {
     controller,
     name,
@@ -16,13 +15,30 @@ const AddItem = () => {
     setName,
     setLocation,
     setIsLoading,
-    isLoading
+    isLoading,
   } = useItemsContext();
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   const handleChange = (event) => {
     setFiles(event.target.files);
   }
 
+  const handleToastMessage = () => {
+    toast.success('Item added', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1500,
+      style: {
+        backgroundColor: '#4CAF50',
+        color: '#ffffff',
+        fontSize: '2rem',
+        textAlign: 'center',
+      }
+    });
+  }
+  
   const nameHandler = e => {
     setName(e.target.value);
   };
@@ -55,13 +71,14 @@ const AddItem = () => {
         name,
         location
       });
-      console.log(data);
-      navigate('/');
+      handleToastMessage();
     });
   }
 
   return (
+    
     <div className="add-item">
+      <ToastContainer/>
       <h1 className="add-item"/>
       {isLoading &&
           <div className="loader">
@@ -79,7 +96,9 @@ const AddItem = () => {
           <button onClick={handleUpload} className="add-btn">save</button>
         </form>
       </div>}
+      
     </div>
+
   );
 };
 

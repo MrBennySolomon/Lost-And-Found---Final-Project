@@ -42,3 +42,8 @@ main h3 {
 main label {
   color: #FA1EF9;
 }
+
+.error p,
+.error p a {
+  background-color: black;
+}

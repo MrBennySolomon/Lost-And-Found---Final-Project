@@ -4,11 +4,11 @@ import "../../../css/EditItem.css";
 import "../../../css/loader.css";
 import React, { useEffect, useState } from "react";
 import { useItemsContext } from "../../../context/context";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditItem = () => {
   const [files, setFiles] = useState("");
-  const navigate = useNavigate();
   const {
     controller,
     items,
@@ -27,6 +27,19 @@ const EditItem = () => {
   useEffect(() => {
     fetchItems();
   }, []);
+
+  const handleToastMessage = () => {
+    toast.success('Item edited', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1500,
+      style: {
+        backgroundColor: '#4CAF50',
+        color: '#ffffff',
+        fontSize: '2rem',
+        textAlign: 'center',
+      }
+    });
+  }
 
   const handleChange = (event) => {
     setFiles(event.target.files);
@@ -57,13 +70,13 @@ const EditItem = () => {
     .then(res => res.json())
     .then(data => {
       setIsLoading(false);
-      console.log(data);
-      navigate('/');
+      handleToastMessage();
     });
   };
 
   return (
     <div className="edit">
+      <ToastContainer/>
       <h1 className="edit-item"/>
       {isLoading &&
           <div className="loader">
