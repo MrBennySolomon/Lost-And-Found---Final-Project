@@ -4,11 +4,11 @@ import                          '../../../css/Login.css';
 import React, {useEffect}  from 'react';
 import { useNavigate }     from 'react-router-dom';
 import { useItemsContext } from '../../../context/context';
-import axios               from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
     const {
+    controller,
     setIsLoading,
     isLoading,
     email,
@@ -31,17 +31,8 @@ const Login = () => {
 
   const formSubmit = async (e) => {
     e.preventDefault();
-    try {
-    const res = await axios.post("http://127.0.0.1:5000/auth/login",{
-      email: email,
-      password: password
-    });
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("user", email);
+    controller.model.loginUser(email, password);
     navigate('/');
-    }catch(err){
-      throw new Error('axios post went wrong: ' + err);
-    }
   }
 
   return (
