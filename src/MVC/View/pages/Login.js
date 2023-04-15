@@ -51,7 +51,6 @@ const Login = () => {
           <input onChange={emailInput} type="email" placeholder="Email" />
           <input onChange={passwordInput} type="password" placeholder="Password" />
           <button onClick={formSubmit} className="add-btn">Login</button>
-          <button className='register' onClick={() => navigate('/register')}>Register</button>
         </form>
       </div>}
     </div>

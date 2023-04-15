@@ -2,8 +2,7 @@ import axios from 'axios';
 
 const UsersDB = {
   items: axios.create({
-    // baseURL: "https://lost-and-found-server-5v26.onrender.com"
-    baseURL: "localhost:5000"
+    baseURL: "https://lost-and-found-server-5v26.onrender.com"
   }),
 
   async removeUser(id) {
@@ -54,19 +53,22 @@ const UsersDB = {
       });
   },
 
-  async editUser(updatedData, id) {
-    this.users
-      .put(`/users/${id}`, updatedData)
-      .then(response => {
-        console.log("User updated successfully:", response.data);
-      })
-      .catch(error => {
-        console.error("Error updating user:", error);
-      });
+  async editUser(items, id) {
+    try {
+      const response = await axios.put(`/users/${id}`, items);
+      if (response.status !== 200) {
+        console.error("cant update user");
+        return;
+      }
+      return response.data;
+    } catch (error) {
+      console.error("Error edit user", error);
+    }
   },
+
   async loginUser(email, password) {
     try {
-      const res = await axios.post("http://127.0.0.1:5000/auth/login",{
+      const res = await axios.post("/auth/login",{
         email: email,
         password: password
       });
@@ -76,9 +78,10 @@ const UsersDB = {
       console.error("cannot login:", error);
     }
   },
+
   async registerUser(email, password) {
     try {
-      const res = await axios.post("http://127.0.0.1:5000/auth/register",{
+      const res = await axios.post("/auth/register",{
         email: email,
         password: password
       });

@@ -3,13 +3,15 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import                                   '../../../css/AddItem.css';
 import                                   'react-toastify/dist/ReactToastify.css';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import { useItemsContext }          from '../../../context/context';
 import { ToastContainer, toast }    from 'react-toastify';
 
 import axios from 'axios';
 
 const AddItem = () => {
+  const nameInputRef = useRef();
+  const locationInputRef = useRef();
   const [files, setFiles] = useState("");
   const {
     controller,
@@ -54,6 +56,7 @@ const AddItem = () => {
     e.preventDefault();
 
     const formData = new FormData();
+
     formData.append('name', name);
     formData.append('location', location);
 
@@ -61,47 +64,50 @@ const AddItem = () => {
       formData.append('files', files[i]);
     }
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     console.log(...formData);
+
     setIsLoading(true);
-    fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
-      method: 'POST' ,
-      body: formData,
-    })
-    .then(res => res.json())
-    .then(async data => {
-      
-      controller.model.addItem({
-        name,
-        location
+
+    if (files.length > 0) {
+    try {
+      const response = await fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
+        method: 'POST',
+        body: formData,
       });
 
-      try {
-        // Create the request payload
-        const payload = {
-          name: name,
-          location: location,
-        };
-  
-        // Send the request to the server
-        const response = await axios.post('localhost:5000/users', payload, {
-          headers: {
-            Authorization: `Bearer ${JSON.stringify(localStorage.getItem('token'))}}`,
-          },
-        });
-  
-        // Show a success message
-        handleToastMessage();
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-        setIsLoading(false);
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Upload successful:', data);
+      } else {
+        console.error('Upload failed:', response.status);
       }
-
-      
-    });
-    setIsLoading(false);
-    handleToastMessage();
+    } catch (error) {
+      console.error('Upload error:', error);
+    }
   }
+
+  controller.model.addItem({
+    name: name,
+    location: location,
+    userId: user.id,
+  });
+
+  const items = JSON.parse(localStorage.getItem('items'));
+
+  items.push({
+    name: name,
+    location: location,
+    userId: user.id,
+  })
+
+  localStorage.setItem('items', JSON.stringify(items));
+
+  setIsLoading(false);
+
+  handleToastMessage();
+};
 
   return (
     
@@ -118,8 +124,8 @@ const AddItem = () => {
       {!isLoading &&
       <div className="inputs-div">
         <form>
-          <input name="name" id="name" onChange={nameHandler} type="text" placeholder="Name" />
-          <input name="location" id="location" onChange={locationHandler} type="text" placeholder="Location" />
+          <input ref={nameInputRef} name="name" id="name" onChange={nameHandler} type="text" placeholder="Name" />
+          <input ref={locationInputRef} name="location" id="location" onChange={locationHandler} type="text" placeholder="Location" />
           <input name="file" id="files" onChange={handleChange} type="file" multiple/>
           <button onClick={handleUpload} className="add-btn">save</button>
         </form>

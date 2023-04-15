@@ -35,8 +35,8 @@ class Model {
     this.usersDB.removeUser(id);
   };
 
-  editUser = (newUser, id) => {
-    this.usersDB.editUser(newUser, id);
+  editUser = (items, id) => {
+    this.usersDB.editUser(items, id);
   };
 
   loginUser = (email, password) => {

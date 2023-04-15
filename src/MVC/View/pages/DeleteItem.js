@@ -9,7 +9,6 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const DeleteItem = () => {
   const {
-    controller,
     items,
     setItems,
     isLoading,
@@ -18,8 +17,8 @@ const DeleteItem = () => {
 
   const fetchItems = async () => {
     setIsLoading(true);
-    const response = await controller.model.getAllItems();
-    setItems(response.data);
+    const totalItems = JSON.parse(localStorage.getItem('items'));
+    setItems(totalItems);
     setIsLoading(false);
   };
 
@@ -41,7 +40,6 @@ const DeleteItem = () => {
   }
 
   const deleteHandler = e => {
-    const id = e.target.getAttribute("id");
     const name = e.target.getAttribute("name");
 
     e.preventDefault();
@@ -49,19 +47,25 @@ const DeleteItem = () => {
     const formData = new FormData();
     formData.append('name', name);
 
-    fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
-      method: 'DELETE' ,
-      body: formData,
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    }).catch((err) => {
-      console.log(err);
-    })
-    controller.model.deleteItem(id);
+    // fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
+    // fetch('http://127.0.0.1:5000/uploads', {
+    //   method: 'DELETE' ,
+    //   body: formData,
+    // })
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log(data)
+    // }).catch((err) => {
+    //   console.log(err);
+    // })
+    // controller.model.deleteItem(id);
     // Remove the deleted item from the state
-    setItems(items.filter(item => item.id !== id));
+    const filtered = items.filter(item => item.name !== name);
+    setItems(filtered);
+    // const user = JSON.parse(localStorage.getItem('user'));
+    // user.items = filtered;
+    localStorage.setItem('items', JSON.stringify(filtered));
+    // controller.model.editUser(user.items, user.id);
     setIsLoading(false);
     handleToastMessage();
   };
@@ -86,7 +90,7 @@ const DeleteItem = () => {
             </tr>
           </thead>
           <tbody>
-            {items.length > 0 &&
+            {items &&
               items.map(item =>
                 <tr key={item.id}>
                   <td>

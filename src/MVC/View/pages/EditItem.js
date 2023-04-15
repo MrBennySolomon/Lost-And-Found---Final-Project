@@ -11,7 +11,6 @@ import { ToastContainer, toast }      from 'react-toastify';
 const EditItem = () => {
   const [files, setFiles] = useState("");
   const {
-    controller,
     items,
     setItems,
     isLoading,
@@ -20,8 +19,8 @@ const EditItem = () => {
 
   const fetchItems = async () => {
     setIsLoading(true);
-    const response = await controller.model.getAllItems();
-    setItems(response.data);
+    const totalItems = JSON.parse(localStorage.getItem('items'));
+    setItems(totalItems);
     setIsLoading(false);
   };
 

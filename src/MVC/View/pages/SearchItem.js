@@ -18,8 +18,8 @@ const SearchItem = () => {
 
   const fetchItems = async () => {
     setIsLoading(true);
-    const response = await controller.model.getAllItems();
-    setItems(response.data);
+    const totalItems = JSON.parse(localStorage.getItem('items'));
+    setItems(totalItems);
     setIsLoading(false);
   };
 
@@ -51,9 +51,9 @@ const SearchItem = () => {
             </tr>
           </thead>
           <tbody>
-            {items.length > 0 &&
+            {items &&
               items.map(item =>
-                <tr key={item.id}>
+                <tr key={item.UserId}>
                   <td>
                     {item.name}
                   </td>

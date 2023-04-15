@@ -52,7 +52,6 @@ const Register = () => {
           <input onChange={emailInput} type="text" placeholder="Email" />
           <input onChange={passwordInput} type="password" placeholder="Password" />
           <button onClick={formSubmit} className="add-btn">Register</button>
-          <button onClick={() => navigate('/login')} className="login">Login</button>
         </form>
       </div>}
     </div>
