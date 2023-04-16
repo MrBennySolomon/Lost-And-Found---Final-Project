@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const UsersDB = {
   users: axios.create({
-    baseURL: "https://localhost:5000/users"
+    baseURL: "https://lost-and-found-server-5v26.onrender.com/users"
   }),
 
   async removeUser(id) {
@@ -68,7 +68,7 @@ const UsersDB = {
 
   async loginUser(email, password) {
     try {
-      const res = await axios.post("https://localhost:5000/auth/login",{
+      const res = await axios.post("http://localhost:5000/auth/login",{
         email: email,
         password: password
       });
@@ -83,7 +83,7 @@ const UsersDB = {
 
   async registerUser(email, password) {
     try {
-      const res = await axios.post("https://localhost:5000/auth/register",{
+      const res = await axios.post("http://localhost:5000/auth/register",{
         email: email,
         password: password
       });

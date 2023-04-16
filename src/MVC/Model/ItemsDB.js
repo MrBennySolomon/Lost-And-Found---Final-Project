@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const ItemsDB = {
   items: axios.create({
-    baseURL: "https://localhost:5000/items"
+    baseURL: "https://lost-and-found-server-5v26.onrender.com/items"
   }),
 
   async removeItem(id) {

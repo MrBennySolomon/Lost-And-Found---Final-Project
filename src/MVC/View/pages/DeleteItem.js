@@ -55,8 +55,7 @@ const DeleteItem = () => {
       const formData = new FormData();
       formData.append("name", name);
 
-      // fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
-      fetch("https://localhost:5000/uploads", {
+      fetch("https://lost-and-found-server-5v26.onrender.com/uploads", {
         method: "DELETE",
         body: formData
       })

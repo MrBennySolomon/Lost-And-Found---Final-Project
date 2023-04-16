@@ -83,7 +83,7 @@ const EditItem = () => {
 
       console.log(...formData);
       setIsLoading(true);
-      fetch('https://localhost:5000/uploads', {
+      fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
         method: 'POST' ,
         body: formData,
       })
