@@ -72,7 +72,7 @@ const AddItem = () => {
 
     if (files.length > 0) {
     try {
-      const response = await fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
+      const response = await fetch('https://localhost:5000/uploads', {
         method: 'POST',
         body: formData,
       });

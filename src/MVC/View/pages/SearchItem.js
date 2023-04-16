@@ -53,7 +53,7 @@ const SearchItem = () => {
           <tbody>
             {items &&
               items.map(item =>
-                <tr key={item.UserId}>
+                <tr key={item.userId}>
                   <td>
                     {item.name}
                   </td>

@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const DeleteItem = () => {
   const {
+    controller,
     items,
     setItems,
     isLoading,
@@ -41,6 +42,7 @@ const DeleteItem = () => {
 
   const deleteHandler = e => {
     const name = e.target.getAttribute("name");
+    const id = e.target.getAttribute("id");
 
     e.preventDefault();
 
@@ -48,17 +50,17 @@ const DeleteItem = () => {
     formData.append('name', name);
 
     // fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
-    // fetch('http://127.0.0.1:5000/uploads', {
-    //   method: 'DELETE' ,
-    //   body: formData,
-    // })
-    // .then(res => res.json())
-    // .then(data => {
-    //   console.log(data)
-    // }).catch((err) => {
-    //   console.log(err);
-    // })
-    // controller.model.deleteItem(id);
+    fetch('https://localhost:5000/uploads', {
+      method: 'DELETE' ,
+      body: formData,
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    }).catch((err) => {
+      console.log(err);
+    })
+    controller.model.deleteItem(id);
     // Remove the deleted item from the state
     const filtered = items.filter(item => item.name !== name);
     setItems(filtered);
@@ -92,7 +94,7 @@ const DeleteItem = () => {
           <tbody>
             {items &&
               items.map(item =>
-                <tr key={item.id}>
+                <tr key={item.userId}>
                   <td>
                     {item.name}
                   </td>

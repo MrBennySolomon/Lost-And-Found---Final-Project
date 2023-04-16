@@ -63,7 +63,7 @@ const EditItem = () => {
 
     console.log(...formData);
     setIsLoading(true);
-    fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
+    fetch('https://localhost:5000/uploads', {
       method: 'POST' ,
       body: formData,
     })
@@ -98,7 +98,7 @@ const EditItem = () => {
         <tbody>
           {items.length > 0 &&
             items.map(item =>
-              <tr key={item.id}>
+              <tr key={item.userId}>
                 <td>{item.name}</td>
                 <td>{item.location}</td>
                 <td className="action" name={item.name} location={item.location} id={item.id} onClick={editHandler}>EDIT</td>
