@@ -72,10 +72,12 @@ const UsersDB = {
         email: email,
         password: password
       });
-      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", JSON.stringify(res.data.token));
       localStorage.setItem("user", JSON.stringify(res.data.user));
+      return true;
     }catch (error) {
       console.error("cannot login:", error);
+      return false;
     }
   },
 
@@ -85,10 +87,12 @@ const UsersDB = {
         email: email,
         password: password
       });
-      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", JSON.stringify(res.data.token));
       localStorage.setItem("user", JSON.stringify(res.data.user));
+      return true;
     }catch (error) {
       console.error("cannot register:", error);
+      return false;
     }
   }
 };

@@ -3,6 +3,7 @@ import React       from 'react';
 import Home        from './MVC/View/pages/Home';
 import Root        from './MVC/View/components/Root';
 import Login       from './MVC/View/pages/Login';
+import Logout       from './MVC/View/pages/Logout';
 import Register    from './MVC/View/pages/Register';
 import FindItem    from './MVC/View/pages/FindItem';
 import AddItem     from './MVC/View/pages/AddItem';
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: "/edit",       element: <EditItem /> },
       { path: "/delete",     element: <DeleteItem /> },
       { path: "/search",     element: <SearchItem /> },
+      { path: "/logout",     element: <Logout /> },
       { path: "/find/:name", element: <FindItem /> }
     ]
   }

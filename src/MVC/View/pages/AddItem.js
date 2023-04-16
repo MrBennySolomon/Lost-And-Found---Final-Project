@@ -36,7 +36,7 @@ const AddItem = () => {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: '#2991EA',
         color: '#ffffff',
         fontSize: '2rem',
         textAlign: 'center',

@@ -40,11 +40,11 @@ class Model {
   };
 
   loginUser = (email, password) => {
-    this.usersDB.loginUser(email, password);
+    return this.usersDB.loginUser(email, password);
   };
 
   registerUser = (email, password) => {
-    this.usersDB.registerUser(email, password);
+    return this.usersDB.registerUser(email, password);
   };
 }
 

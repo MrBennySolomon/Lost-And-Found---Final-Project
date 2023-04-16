@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/heading-has-content */
-import                          '../../../css/Login.css';
-import React, {useEffect}  from 'react';
-import { useNavigate }     from 'react-router-dom';
-import { useItemsContext } from '../../../context/context';
+import "../../../css/Login.css";
+import "react-toastify/dist/ReactToastify.css";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useItemsContext } from "../../../context/context";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
-    const {
+  const {
     controller,
     setIsLoading,
     isLoading,
@@ -21,40 +23,86 @@ const Login = () => {
     setIsLoading(false);
   }, []);
 
-  const emailInput = (e) => {
+  const emailInput = e => {
     setEmail(e.target.value);
-  }
+  };
 
-  const passwordInput = (e) => {
+  const passwordInput = e => {
     setPassword(e.target.value);
-  }
+  };
 
-  const formSubmit = async (e) => {
+  const handleToastMessageSuccess = () => {
+    toast.success(`👌`, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1500,
+      style: {
+        backgroundColor: "#2991EA",
+        color: "#ffffff",
+        fontSize: "4rem",
+        textAlign: "center"
+      }
+    });
+  };
+
+  const handleToastMessage = () => {
+    toast.error("Try Again", {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1500,
+      style: {
+        backgroundColor: "#F92FF7",
+        color: "#ffffff",
+        fontSize: "2rem",
+        textAlign: "center"
+      }
+    });
+  };
+
+  const formSubmit = async e => {
     e.preventDefault();
-    controller.model.loginUser(email, password);
-    navigate('/');
-  }
+    const success = await controller.model.loginUser(email, password);
+    if (success) {
+      const allItems = await controller.model.getAllItems();
+      localStorage.setItem("allItems", JSON.stringify(allItems.data));
+      const items = JSON.parse(localStorage.getItem('allItems'));
+      const user = JSON.parse(localStorage.getItem('user'));
+      const filtered = items.filter(item => item.userId === user.id);
+      localStorage.setItem('items', JSON.stringify(filtered));
+      handleToastMessageSuccess();
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
+    } else {
+      handleToastMessage();
+    }
+  };
 
   return (
-    <div className='login'>
-      <h1 className='login'/>
+    <div className="login">
+      <ToastContainer />
+      <h1 className="login" />
       {isLoading &&
-          <div className="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>}
+        <div className="loader">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>}
       {!isLoading &&
-      <div className="inputs-div">
-        <form>
-          <input onChange={emailInput} type="email" placeholder="Email" />
-          <input onChange={passwordInput} type="password" placeholder="Password" />
-          <button onClick={formSubmit} className="add-btn">Login</button>
-        </form>
-      </div>}
+        <div className="inputs-div">
+          <form>
+            <input onChange={emailInput} type="email" placeholder="Email" />
+            <input
+              onChange={passwordInput}
+              type="password"
+              placeholder="Password"
+            />
+            <button onClick={formSubmit} className="add-btn">
+              Login
+            </button>
+          </form>
+        </div>}
     </div>
-  )
-}
+  );
+};
 
 export default Login;
