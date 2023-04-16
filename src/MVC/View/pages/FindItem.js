@@ -8,10 +8,6 @@ const FindItem = () => {
   const params = useParams();
   
   const { unload, unityProvider } = useUnityContext({
-    // loaderUrl:    `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.loader.js`,
-    // dataUrl:      `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.data.unityweb`,
-    // frameworkUrl: `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.framework.js.unityweb`,
-    // codeUrl:      `https://lost-and-found-server-5v26.onrender.com/uploads/${params.name}.wasm.unityweb`,
     loaderUrl:    `https://localhost:5000/uploads/${params.name}.loader.js`,
     dataUrl:      `https://localhost:5000/uploads/${params.name}.data.unityweb`,
     frameworkUrl: `https://localhost:5000/uploads/${params.name}.framework.js.unityweb`,

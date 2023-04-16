@@ -1,24 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/heading-has-content */
-import                           '../../../css/SearchItem.css';
-import                           '../../../css/loader.css';
-import React, { useEffect } from 'react';
-import { useNavigate }      from 'react-router-dom';
-import { useItemsContext }  from '../../../context/context';
+import "../../../css/SearchItem.css";
+import "../../../css/loader.css";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useItemsContext } from "../../../context/context";
 
 const SearchItem = () => {
-  const {
-    controller,
-    items,
-    setItems,
-    isLoading,
-    setIsLoading
-  } = useItemsContext();
+  const { items, setItems, isLoading, setIsLoading } = useItemsContext();
   const navigate = useNavigate();
 
   const fetchItems = async () => {
     setIsLoading(true);
-    const totalItems = JSON.parse(localStorage.getItem('items'));
+    const totalItems = JSON.parse(localStorage.getItem("items"));
     setItems(totalItems);
     setIsLoading(false);
   };
@@ -34,14 +28,14 @@ const SearchItem = () => {
 
   return (
     <div className="search">
-      <h1 className="search-item"/>
-        {isLoading &&
-          <div className="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>}
+      <h1 className="search-item" />
+      {isLoading &&
+        <div className="loader">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>}
       {!isLoading &&
         <table>
           <thead>
@@ -53,7 +47,7 @@ const SearchItem = () => {
           <tbody>
             {items &&
               items.map(item =>
-                <tr key={item.userId}>
+                <tr key={item.name}>
                   <td>
                     {item.name}
                   </td>

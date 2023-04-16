@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
-import                                '../../../css/DeleteItem.css';
-import                                '../../../css/loader.css';
-import                                'react-toastify/dist/ReactToastify.css';
-import React, { useEffect }      from 'react';
-import { useItemsContext }       from '../../../context/context';
-import { ToastContainer, toast } from 'react-toastify';
+import "../../../css/DeleteItem.css";
+import "../../../css/loader.css";
+import "react-toastify/dist/ReactToastify.css";
+import React, { useEffect } from "react";
+import { useItemsContext } from "../../../context/context";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const DeleteItem = () => {
+  const navigate = useNavigate();
   const {
     controller,
     items,
@@ -18,7 +20,7 @@ const DeleteItem = () => {
 
   const fetchItems = async () => {
     setIsLoading(true);
-    const totalItems = JSON.parse(localStorage.getItem('items'));
+    const totalItems = JSON.parse(localStorage.getItem("items"));
     setItems(totalItems);
     setIsLoading(false);
   };
@@ -28,61 +30,67 @@ const DeleteItem = () => {
   }, []);
 
   const handleToastMessage = () => {
-    toast.success('Item deleted', {
+    toast.success("Item Deleted", {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {
-        backgroundColor: '#2991EA',
-        color: '#ffffff',
-        fontSize: '2rem',
-        textAlign: 'center',
+        backgroundColor: "rgba(26,182,27, 0.5)",
+        color: "#07BC0C",
+        fontSize: "2rem",
+        textAlign: "center",
+        fontWeight: "bold"
       }
     });
-  }
+  };
 
   const deleteHandler = e => {
-    const name = e.target.getAttribute("name");
-    const id = e.target.getAttribute("id");
-
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('name', name);
+    if (localStorage.getItem("token").length < 10) {
+      navigate("/login");
+    } else {
+      const name = e.target.getAttribute("name");
+      const id = e.target.getAttribute("id");
 
-    // fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
-    fetch('https://localhost:5000/uploads', {
-      method: 'DELETE' ,
-      body: formData,
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    }).catch((err) => {
-      console.log(err);
-    })
-    controller.model.deleteItem(id);
-    // Remove the deleted item from the state
-    const filtered = items.filter(item => item.name !== name);
-    setItems(filtered);
-    // const user = JSON.parse(localStorage.getItem('user'));
-    // user.items = filtered;
-    localStorage.setItem('items', JSON.stringify(filtered));
-    // controller.model.editUser(user.items, user.id);
-    setIsLoading(false);
-    handleToastMessage();
+      const formData = new FormData();
+      formData.append("name", name);
+
+      // fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
+      fetch("https://localhost:5000/uploads", {
+        method: "DELETE",
+        body: formData
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      controller.model.deleteItem(id);
+      // Remove the deleted item from the state
+      const filtered = items.filter(item => item.name !== name);
+      setItems(filtered);
+      // const user = JSON.parse(localStorage.getItem('user'));
+      // user.items = filtered;
+      localStorage.setItem("items", JSON.stringify(filtered));
+      // controller.model.editUser(user.items, user.id);
+      setIsLoading(false);
+      handleToastMessage();
+    }
   };
 
   return (
     <div className="delete">
-      <ToastContainer/>
-      <h1 className="delete-item"/>
+      <ToastContainer />
+      <h1 className="delete-item" />
       {isLoading &&
-          <div className="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>}
+        <div className="loader">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>}
       {!isLoading &&
         <table>
           <thead>
@@ -94,11 +102,16 @@ const DeleteItem = () => {
           <tbody>
             {items &&
               items.map(item =>
-                <tr key={item.userId}>
+                <tr key={item.name}>
                   <td>
                     {item.name}
                   </td>
-                  <td className="action" name={item.name} id={item.id} onClick={deleteHandler}>
+                  <td
+                    className="action"
+                    name={item.name}
+                    id={item.id}
+                    onClick={deleteHandler}
+                  >
                     X
                   </td>
                 </tr>

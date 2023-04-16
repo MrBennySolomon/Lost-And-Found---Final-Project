@@ -32,27 +32,29 @@ const Register = () => {
   };
 
   const handleToastMessageSuccess = () => {
-    toast.success(`👌`, {
+    toast.success('Success', {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {
-        backgroundColor: "#2991EA",
-        color: "#ffffff",
-        fontSize: "4rem",
-        textAlign: "center"
+        backgroundColor: 'rgba(26,182,27, 0.5)',
+        color: '#07BC0C',
+        fontSize: '2rem',
+        textAlign: 'center',
+        fontWeight: "bold"
       }
     });
   };
 
   const handleToastMessage = () => {
-    toast.error("Try Again", {
+    toast.error("Failed", {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {
-        backgroundColor: "#F92FF7",
-        color: "#ffffff",
+        backgroundColor: 'rgba(225,35,31, 0.5)',
+        color: "#E74C3C",
         fontSize: "2rem",
-        textAlign: "center"
+        textAlign: "center",
+        fontWeight: "bold"
       }
     });
   };
