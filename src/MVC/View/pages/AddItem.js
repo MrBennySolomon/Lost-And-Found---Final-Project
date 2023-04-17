@@ -34,7 +34,7 @@ const AddItem = () => {
   };
 
   const handleToastMessage = () => {
-    toast.success('Item Added', {
+    toast.success('✅', {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {

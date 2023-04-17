@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   const handleToastMessageSuccess = () => {
-    toast.success('Login Success', {
+    toast.success('✅', {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {

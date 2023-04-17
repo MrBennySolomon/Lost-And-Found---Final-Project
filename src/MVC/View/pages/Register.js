@@ -32,7 +32,7 @@ const Register = () => {
   };
 
   const handleToastMessageSuccess = () => {
-    toast.success('Success', {
+    toast.success('✅', {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {

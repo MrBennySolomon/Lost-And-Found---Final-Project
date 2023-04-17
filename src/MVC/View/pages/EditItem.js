@@ -30,7 +30,7 @@ const EditItem = () => {
   }, []);
 
   const handleToastMessage = () => {
-    toast.success('Item edited', {
+    toast.success('✅', {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {

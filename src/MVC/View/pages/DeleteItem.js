@@ -30,7 +30,7 @@ const DeleteItem = () => {
   }, []);
 
   const handleToastMessage = () => {
-    toast.success("Item Deleted", {
+    toast.success("✅", {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 1500,
       style: {
@@ -66,6 +66,7 @@ const DeleteItem = () => {
         .catch(err => {
           console.log(err);
         });
+      console.log('id', id);
       controller.model.deleteItem(id);
       // Remove the deleted item from the state
       const filtered = items.filter(item => item.name !== name);
