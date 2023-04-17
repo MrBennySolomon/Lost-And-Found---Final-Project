@@ -15,6 +15,7 @@ const AddItem = () => {
   const nameInputRef = useRef();
   const locationInputRef = useRef();
   const [files, setFiles] = useState("");
+  const [uploaded, setUploaded] = useState(null);
   const {
     controller,
     name,
@@ -91,41 +92,31 @@ const AddItem = () => {
 
       setIsLoading(true);
 
-      try {
-        const response = await fetch("https://lost-and-found-server-5v26.onrender.com/uploads", {
-          method: "POST",
-          body: formData
+      axios.post('https://lost-and-found-server-5v26.onrender.com/uploads', formData, {
+        onUploadProgress: (data) => {
+          setUploaded(Math.round((data.loaded / data.total) * 100));
+        },
+      })
+      .then((success) => {
+        controller.model.addItem({
+          name: name,
+          location: location,
+          userId: user.id
         });
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log("Upload successful:", data);
-        } else {
-          console.error("Upload failed:", response.status);
-        }
-      } catch (error) {
-        console.error("Upload error:", error);
-      }
-
-      controller.model.addItem({
-        name: name,
-        location: location,
-        userId: user.id
+        const items = JSON.parse(localStorage.getItem("items"));
+        items.push({
+          name: name,
+          location: location,
+          userId: user.id
+        });
+        localStorage.setItem("items", JSON.stringify(items));
+        setIsLoading(false);
+        handleToastMessage();
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        handleToastMessageFail();
       });
-
-      const items = JSON.parse(localStorage.getItem("items"));
-
-      items.push({
-        name: name,
-        location: location,
-        userId: user.id
-      });
-
-      localStorage.setItem("items", JSON.stringify(items));
-
-      setIsLoading(false);
-
-      handleToastMessage();
     }
   };
 
@@ -171,6 +162,24 @@ const AddItem = () => {
             </button>
           </form>
         </div>}
+        {
+        uploaded && 
+        <div className="progress mt-2"
+        style={{textAlign: 'center',border: '3px solid #2991EA', width: '60%', height: '2.6rem'}}
+        >
+          <div className="progress-bar" 
+          role='progressbar'
+          aria-valuenow={uploaded}
+          aria-valuemin='0'
+          aria-valuemax='100'
+          style={{height: '2rem', background: '#2991EA', color: 'white', width: `${uploaded}%`}}>
+            {`${uploaded}%`}
+          
+          </div>
+
+        </div>
+        
+        }
     </div>
   );
 };

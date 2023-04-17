@@ -72,7 +72,7 @@ const Login = () => {
       handleToastMessageSuccess();
       setTimeout(() => {
         navigate("/");
-      }, 1500);
+      }, 2000);
     } else {
       handleToastMessage();
     }

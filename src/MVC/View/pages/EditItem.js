@@ -7,10 +7,12 @@ import React, { useEffect, useState } from 'react';
 import { useItemsContext } from '../../../context/context';
 import { ToastContainer, toast } from 'react-toastify';
 import {useNavigate} from 'react-router-dom';
+import axios from "axios";
 
 const EditItem = () => {
   const navigate = useNavigate();
   const [files, setFiles] = useState("");
+  const [uploaded, setUploaded] = useState(null);
   const {
     items,
     setItems,
@@ -83,14 +85,19 @@ const EditItem = () => {
 
       console.log(...formData);
       setIsLoading(true);
-      fetch('https://lost-and-found-server-5v26.onrender.com/uploads', {
-        method: 'POST' ,
-        body: formData,
+      axios.post('https://lost-and-found-server-5v26.onrender.com/uploads', formData, {
+        onUploadProgress: (data) => {
+          setUploaded(Math.round((data.loaded / data.total) * 100));
+        },
       })
+
       .then(res => res.json())
       .then(data => {
         setIsLoading(false);
         handleToastMessage();
+      })
+      .catch((error) => {
+        setIsLoading(false);
       });
     }
   };
@@ -130,6 +137,24 @@ const EditItem = () => {
 
       <input className='files' name="file" id="files" onChange={handleChange} type="file" multiple/>
       </>}
+      {
+        uploaded && 
+        <div className="progress mt-2"
+        style={{textAlign: 'center',border: '3px solid #2991EA', width: '60%', height: '2.6rem'}}
+        >
+          <div className="progress-bar" 
+          role='progressbar'
+          aria-valuenow={uploaded}
+          aria-valuemin='0'
+          aria-valuemax='100'
+          style={{height: '2rem', background: '#2991EA', color: 'white', width: `${uploaded}%`}}>
+            {`${uploaded}%`}
+          
+          </div>
+
+        </div>
+        
+        }
     </div>
   );
 };
