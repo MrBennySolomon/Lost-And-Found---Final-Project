@@ -2,12 +2,12 @@ import axios from 'axios';
 
 const UsersDB = {
   users: axios.create({
-    baseURL: "https://lost-and-found-server-5v26.onrender.com"
+    baseURL: "https://lost-and-found-server-5v26.onrender.com/users"
   }),
 
   async removeUser(id) {
     this.users
-      .delete(`/users/${id}`)
+      .delete(`/${id}`)
       .then(response => {
         console.log(`User id ${id} was deleted successfully`);
         return "User Was Deleted!";
@@ -19,7 +19,7 @@ const UsersDB = {
 
   async getUser(id) {
     this.users
-      .get(`/users/${id}`)
+      .get(`/${id}`)
       .then(response => {
         console.log(`User id ${id} was fetch successfully`);
         return response.data;
@@ -31,7 +31,7 @@ const UsersDB = {
 
   async getAllUsers() {
     try {
-      const response = await this.users.get("/users");
+      const response = await this.users.get("");
       if (response.status !== 200) {
         console.error("cant get users from the api");
         return;
@@ -44,7 +44,7 @@ const UsersDB = {
 
   async addUser(newUser) {
     this.users
-      .post("/users", newUser)
+      .post("", newUser)
       .then(response => {
         console.log("User was added successfully");
       })
@@ -55,7 +55,7 @@ const UsersDB = {
 
   async editUser(items, id) {
     try {
-      const response = await axios.put(`/users/${id}`, items);
+      const response = await axios.put(`/${id}`, items);
       if (response.status !== 200) {
         console.error("cant update user");
         return;
@@ -68,7 +68,7 @@ const UsersDB = {
 
   async loginUser(email, password) {
     try {
-      const res = await axios.post("/auth/login",{
+      const res = await axios.post("https://lost-and-found-server-5v26.onrender.com/auth/login",{
         email: email,
         password: password
       });
@@ -83,7 +83,7 @@ const UsersDB = {
 
   async registerUser(email, password) {
     try {
-      const res = await axios.post("/auth/register",{
+      const res = await axios.post("https://lost-and-found-server-5v26.onrender.com/auth/register",{
         email: email,
         password: password
       });
