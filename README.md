@@ -1,9 +1,9 @@
 ---------------------------------------------------------------------------------------------
-## [Final-Project - React Responsive Lost & Found Web site](https://lost-and-found-client-es0k.onrender.com/)
+## [Final-Project - React Responsive Lost & Found Web site](https://final-project-lost-and-found.netlify.app/)
 ---------------------------------------------------------------------------------------------
-### live demo: https://lost-and-found-client-es0k.onrender.com/
+### live demo: [https://final-project-lost-and-found.netlify.app/](https://final-project-lost-and-found.netlify.app/)
 ---------------------------------------------------------------------------------------------
-### teaser video: https://www.youtube.com/shorts/n09Q7wm-lFM
+### teaser video: [https://www.youtube.com/shorts/lLWq3QRZXAg](https://www.youtube.com/shorts/lLWq3QRZXAg)
 ---------------------------------------------------------------------------------------------
 diagram :
 ---------
