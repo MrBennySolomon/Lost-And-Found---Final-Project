@@ -3,7 +3,7 @@
 ---------------------------------------------------------------------------------------------
 ### live demo: [https://final-project-lost-and-found.netlify.app/](https://final-project-lost-and-found.netlify.app/)
 ---------------------------------------------------------------------------------------------
-### teaser video: [https://www.youtube.com/shorts/lLWq3QRZXAg](https://www.youtube.com/shorts/lLWq3QRZXAg)
+### teaser video: [https://www.youtube.com/shorts/uvy5DqkkPGs](https://www.youtube.com/shorts/uvy5DqkkPGs)
 ---------------------------------------------------------------------------------------------
 diagram :
 ---------
