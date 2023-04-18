@@ -34,11 +34,11 @@ const FindItem = () => {
         >
           <div className="progress-bar" 
           role='progressbar'
-          aria-valuenow={loadingProgression * 100}
+          aria-valuenow={Math.round(loadingProgression * 100)}
           aria-valuemin='0'
           aria-valuemax='100'
-          style={{height: '2rem', background: '#2991EA', color: 'white', width: `${loadingProgression * 100}%`}}>
-            {`${loadingProgression * 100}%`}
+          style={{height: '2rem', background: '#2991EA', color: 'white', width: `${Math.round(loadingProgression * 100)}%`}}>
+            {`${Math.round(loadingProgression * 100)}%`}
           
           </div>
 
