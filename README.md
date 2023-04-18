@@ -21,10 +21,13 @@ diagram :
 screen-shots:
 -------------
 ![home-screenshot](https://user-images.githubusercontent.com/53153372/230719041-b00a64e6-4a70-491f-8005-08ab4a6caa1c.png)
-![add-page-screenshot](https://user-images.githubusercontent.com/53153372/230720240-395fc647-7549-444c-9ce8-8f9f68977c1a.png)
-![edit-page-screenshot](https://user-images.githubusercontent.com/53153372/230720052-c415c1df-a31f-4c5d-ac3e-22bcc1bf3943.png)
+![hamburger-menu-screenshot](https://user-images.githubusercontent.com/53153372/232767084-c79769f7-d52d-4716-b116-82eefd15715c.png)
+![add-item-screenshot](https://user-images.githubusercontent.com/53153372/232766970-6da790cb-1f1e-4a2f-845f-52151188d12b.png)
+![edit-item-screenshot](https://user-images.githubusercontent.com/53153372/232767013-3e7bcf77-fc22-4436-839b-eac786526a91.png)
 ![delete-page-screenshot](https://user-images.githubusercontent.com/53153372/230720247-13cc4052-8106-429c-bb1f-fcb63adac1be.png)
 ![search-page-screenshot](https://user-images.githubusercontent.com/53153372/230720249-5be94b1e-dec5-4aa1-9cad-ed44ed23083f.png)
+![loader screenshot](https://user-images.githubusercontent.com/53153372/232767104-71cd4964-fd29-4286-95c9-5e3a0863978b.png)
+![progress-bar-screenshot](https://user-images.githubusercontent.com/53153372/232767118-abd3ccb2-b966-49c2-8a44-a8a8ada3d0e7.png)
 ---------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 ---------------------------------------------------------------------------------------------
