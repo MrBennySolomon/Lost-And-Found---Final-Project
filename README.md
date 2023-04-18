@@ -7,7 +7,7 @@
 ---------------------------------------------------------------------------------------------
 diagram :
 ---------
-![lost-and-found-diagram-screenshot](https://user-images.githubusercontent.com/53153372/230718763-d9b18ec5-e27c-424b-8cf6-69c8f86aecd1.png)
+![final-project-diagram-screenshot](https://user-images.githubusercontent.com/53153372/232776016-031ad87b-bd8b-4a14-bc14-35f1404e271d.png)
 ---------------------------------------------------------------------------------------------
 #### ◯ Home Page               - the user have navbar, body and footer.
 #### ◯ Add Item Page           - the user can add items name and location to the database.
