@@ -9,11 +9,12 @@ diagram :
 ---------
 ![lost-and-found-diagram-screenshot](https://user-images.githubusercontent.com/53153372/230718763-d9b18ec5-e27c-424b-8cf6-69c8f86aecd1.png)
 ---------------------------------------------------------------------------------------------
-#### ◯ Home Page         - the user have navbar, body and footer.
-#### ◯ Add Item Page     - the user can add items name and location to the database.
-#### ◯ Edit Item Page    - the user can edit items name and location.
-#### ◯ Delete Item Page  - the user can delete item from the database.
-#### ◯ Search Item Page  - the user can search items and press "Take Me" button.
+#### ◯ Home Page               - the user have navbar, body and footer.
+#### ◯ Add Item Page           - the user can add items name and location to the database.
+#### ◯ Edit Item Page          - the user can edit items name and location.
+#### ◯ Delete Item Page        - the user can delete item from the database.
+#### ◯ Search Item Page        - the user can search items and press "Take Me" button.
+#### ◯ percentage progress bar - for unity and axios
 ---------------------------------------------------------------------------------------------
 #### technologies used : react / react-router-dom / useState / useEffect / useRef / useContext / useNavigate / useParams / JavaScript / css / html
 ---------------------------------------------------------------------------------------------
