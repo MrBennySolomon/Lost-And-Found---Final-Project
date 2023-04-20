@@ -16,7 +16,8 @@ const Register = () => {
     email,
     setEmail,
     password,
-    setPassword
+    setPassword,
+    setIsUserLoggedIn
   } = useItemsContext();
 
   useEffect(() => {
@@ -69,6 +70,7 @@ const Register = () => {
       const user = JSON.parse(localStorage.getItem("user"));
       const filtered = items.filter(item => item.userId === user.id);
       localStorage.setItem("items", JSON.stringify(filtered));
+      setIsUserLoggedIn(true);
       handleToastMessageSuccess();
       setTimeout(() => {
         navigate("/");

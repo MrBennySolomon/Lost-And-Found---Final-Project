@@ -4,13 +4,14 @@ import Controller                              from '../MVC/Controller/Controlle
 const AppContext = createContext([]);
 
 const AppProvider = ({ children }) => {
-  const controller                = new Controller();
-  const [name, setName]           = useState('');
-  const [items, setItems]         = useState([]);
-  const [location, setLocation]   = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-  const [email, setEmail]         = useState('');
-  const [password, setPassword]   = useState('');
+  const controller                          = new Controller();
+  const [name, setName]                     = useState('');
+  const [items, setItems]                   = useState([]);
+  const [location, setLocation]             = useState('');
+  const [isLoading, setIsLoading]           = useState(true);
+  const [email, setEmail]                   = useState('');
+  const [password, setPassword]             = useState('');
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   return (
     <AppContext.Provider
@@ -27,7 +28,9 @@ const AppProvider = ({ children }) => {
         email,
         setEmail,
         password,
-        setPassword
+        setPassword,
+        isUserLoggedIn,
+        setIsUserLoggedIn
       }}
     >
       {children}
