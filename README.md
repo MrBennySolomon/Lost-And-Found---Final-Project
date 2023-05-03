@@ -3,7 +3,7 @@
 ---------------------------------------------------------------------------------------------
 ### live demo: [https://final-project-lost-and-found.netlify.app/](https://final-project-lost-and-found.netlify.app/)
 ---------------------------------------------------------------------------------------------
-### teaser video: [https://www.youtube.com/shorts/uvy5DqkkPGs](https://www.youtube.com/shorts/uvy5DqkkPGs)
+### teaser video: [https://www.youtube.com/shorts/lGhJuyKlvFA](https://www.youtube.com/shorts/lGhJuyKlvFA)
 ---------------------------------------------------------------------------------------------
 email and password for testing:
 email: benny@gmail.com | password:123
