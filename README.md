@@ -5,6 +5,9 @@
 ---------------------------------------------------------------------------------------------
 ### teaser video: [https://www.youtube.com/shorts/uvy5DqkkPGs](https://www.youtube.com/shorts/uvy5DqkkPGs)
 ---------------------------------------------------------------------------------------------
+email and password for testing:
+email: benny@gmail.com | password:123
+---------------------------------------------------------------------------------------------
 diagram :
 ---------
 ![final-project-diagram-screenshot](https://user-images.githubusercontent.com/53153372/232776016-031ad87b-bd8b-4a14-bc14-35f1404e271d.png)
